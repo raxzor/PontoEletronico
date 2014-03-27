@@ -10,7 +10,7 @@ import java.sql.Date;
  *
  * @author Gilmar
  */
-public class Frequencia {
+public class Frequencia implements Comparable<Date> {
     
     private Funcionario funcionario;
     private Date data;
@@ -66,6 +66,10 @@ public class Frequencia {
 
     public void setJustificativa(String justificativa) {
         this.justificativa = justificativa;
+    }
+
+    public int compareTo(Date o) {
+        return this.data.compareTo(o);
     }
     
     

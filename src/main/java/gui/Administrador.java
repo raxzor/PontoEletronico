@@ -5,6 +5,7 @@
 package gui;
 
 import eventos.ButtonHandlerNovoUsuario;
+import eventos.ProcurarUsuarioFrequenciaHandler;
 import eventos.ProcurarUsuarioHandler;
 import javax.swing.JOptionPane;
 import negocio.UsuarioLogado;
@@ -28,6 +29,8 @@ public class Administrador extends javax.swing.JFrame {
         jButton4.addActionListener(procurarUsuarioHandler);
         jButton5.addActionListener(procurarUsuarioHandler);
         jLabel5.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
+        ProcurarUsuarioFrequenciaHandler procurarUsuarioFrequenciaHandler = new ProcurarUsuarioFrequenciaHandler(this);
+        jButton3.addActionListener(procurarUsuarioFrequenciaHandler);
      }
 
     /**

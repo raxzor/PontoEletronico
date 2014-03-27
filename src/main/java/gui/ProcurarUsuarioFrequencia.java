@@ -5,8 +5,11 @@
 package gui;
 
 import beans.Funcionario;
+import eventos.PesquisarUsuarioButtonHandlerFrequencia;
+import eventos.SelecionarUsuarioFrequenciaHandler;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import negocio.UsuarioLogado;
 
 /**
  *
@@ -48,11 +51,19 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
 //        jTable1.updateUI();
         
     }
-
+    
+    public String getData(){
+        return jTextField2.getText();
+    }
+    
+    
     private ProcurarUsuarioFrequencia() {
         initComponents();
         JOptionPane.setRootFrame(this);
         setLocationRelativeTo(null);
+        
+        PesquisarUsuarioButtonHandlerFrequencia pesquisarUsuarioButtonHandlerFrequencia = new PesquisarUsuarioButtonHandlerFrequencia(this);
+        jButton1.addActionListener(pesquisarUsuarioButtonHandlerFrequencia);
 //        PesquisarUsuarioButtonHandler pesquisarUsuarioButtonHandler = new PesquisarUsuarioButtonHandler(this);
 //        jButton1.addActionListener(pesquisarUsuarioButtonHandler);
 //        ButtonHandlerVoltarPesquisarUsuario voltarPesquisarUsuarioHandler = new ButtonHandlerVoltarPesquisarUsuario(this);
@@ -61,8 +72,11 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
 //        jButton2.addActionListener(selecionarUsuarioHandler);
 //        ApagarUsuarioHandler apagarUsuarioHandler = new ApagarUsuarioHandler(this);
 //        jButton3.addActionListener(apagarUsuarioHandler);
-//        jLabel6.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
+        jLabel6.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
 
+        SelecionarUsuarioFrequenciaHandler selecionarUsuarioFrequenciaHandler = new SelecionarUsuarioFrequenciaHandler(this);
+        jButton2.addActionListener(selecionarUsuarioFrequenciaHandler);
+        
 //        jButton3.addActionListener(pesquisarUsuarioButtonHandler);
     }
 
@@ -86,7 +100,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -147,11 +161,22 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
 
         jLabel6.setText("Bem Vindo, ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(654, 170, 160, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 90, -1));
 
-        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel8.setText("Data: ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, -1, 20));
+        jTextField2.setText("Ex.: 03/2014");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 110, -1));
+
+        jButton2.setText("Buscar Frequência");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 130, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 760, 420));
@@ -165,6 +190,14 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,6 +235,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -210,7 +244,6 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

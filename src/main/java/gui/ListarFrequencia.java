@@ -4,6 +4,13 @@
  */
 package gui;
 
+import beans.Frequencia;
+import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import service.relatorios.RelatorioFrequenciaFuncionario;
+import service.relatorios.UtilDatas;
+
 /**
  *
  * @author Gilmar
@@ -13,9 +20,37 @@ public class ListarFrequencia extends javax.swing.JFrame {
     /**
      * Creates new form ListarFrequencia
      */
-    public ListarFrequencia() {
+    
+    
+        public JTable getTable(){
+        return jTable1;
+    }
+    public void setTable(JTable jTable) {
+          jTable1 = jTable; 
+          System.out.println("Setou o Table");
+    }
+    
+    public ListarFrequencia(String[] args, List<Frequencia> frequencias) {
         initComponents();
         setLocationRelativeTo(null);
+//        JTable jTable = new JTable();
+        DefaultTableModel model = new DefaultTableModel();
+        jTable1.setModel(model);
+        
+        model.addColumn("Data");
+        model.addColumn("Nome Completo Deus");
+        model.addColumn("Portaria");
+        model.addColumn("Presença");
+        
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(220);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+        
+        for(Frequencia frequencia : frequencias){
+            model.addRow(new Object[]{UtilDatas.DateToString(frequencia.getData()), frequencia.getFuncionario().getNome(), frequencia.getFuncionario().getPortaria(), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencia.getPresenca())});
+        }
+//        jTable1 = jTable;
     }
 
     /**
@@ -31,8 +66,6 @@ public class ListarFrequencia extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -89,14 +122,10 @@ public class ListarFrequencia extends javax.swing.JFrame {
         jButton2.setText("Editar");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 130, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/procurar.png"))); // NOI18N
-        jButton3.setText("Pesquisar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 130, -1));
-
         jLabel3.setText("Nome do Usuário: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 100, 20));
 
+        jLabel4.setToolTipText("");
         jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(153, 153, 153))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 410, 80));
 
@@ -122,7 +151,8 @@ public class ListarFrequencia extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(final String args[], final List<Frequencia> frequencias) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -149,14 +179,14 @@ public class ListarFrequencia extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListarFrequencia().setVisible(true);
+                new ListarFrequencia(args, frequencias).setVisible(true);
+                System.out.println("MAIN");
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -165,6 +195,5 @@ public class ListarFrequencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

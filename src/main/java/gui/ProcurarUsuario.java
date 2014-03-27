@@ -28,8 +28,6 @@ public class ProcurarUsuario extends javax.swing.JFrame {
      */
     
     public String TextFiel1(){
-        
-        
         return jTextField1.getText();
     }
     
@@ -42,16 +40,6 @@ public class ProcurarUsuario extends javax.swing.JFrame {
     }
     public void setTable(JTable jTable) {
           jTable1 = jTable;
-          
-//        initComponents();
-//        this.funcionarios = funcionarios;
-//        System.out.println("Set Table");
-//        DefaultTableModel defaultTableModel = new DefaultTableModel();
-//        
-//        defaultTableModel.addRow(funcionarios);
-//        jTable1 = new JTable(defaultTableModel);
-//        jTable1.updateUI();
-        
     }
 
     private ProcurarUsuario() {

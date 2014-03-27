@@ -4,15 +4,21 @@
  */
 package service.relatorios;
 
+import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
 import dao.FuncionarioDao;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -88,7 +94,59 @@ public class UtilFrequencia {
       return maximoDias;
       
   }
-    
+  
+  public List<Date> datasMes(Integer mes, Integer ano, List<Frequencia> frequencias){
+        Date d;
+        List<Date> datas = new ArrayList<Date>();
+        UtilFrequencia utilFrequencia = new UtilFrequencia();
+        Integer maxDias = utilFrequencia.getMaximoDias(mes, ano);
+        Calendar c = Calendar.getInstance();
+        for(int i = 1; i <= maxDias; i++){
+            c.set(ano, (mes - 1), i);
+            d = new Date(c.getTimeInMillis());
+            datas.add(d);
+        }
+        return datas;
+    }
+    public List<Frequencia> getFrequenciaMes(Integer mes, Integer ano, Integer idFuncionario) throws SQLException{
+        Date d;
+        UtilFrequencia utilFrequencia = new UtilFrequencia();
+        Integer maxDias = utilFrequencia.getMaximoDias(mes, ano);
+        Calendar c = Calendar.getInstance();
+        FrequenciaDao frequenciaDao = new FrequenciaDao();
+        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario(mes, ano, idFuncionario);
+        List<String> datas = new ArrayList<String>();
+        String retorno = "";
+        
+        
+            for(Frequencia frequencia : frequencias){
+                datas.add(frequencia.getData().toString());
+            }
+        
+        
+        for(int i = 1; i <= maxDias; i++){
+            c.set(ano, (mes - 1), i);
+            d = new Date(c.getTimeInMillis());
+            if(!datas.contains(d.toString())){
+                Frequencia f = new Frequencia();
+                f.setData(d);
+                f.setFuncionario(frequencias.get(0).getFuncionario());
+                f.setPresenca(Boolean.FALSE);
+                
+                frequencias.add(f);
+             }
+            
+        }
+        
+        Collections.sort(frequencias, new Comparator<Frequencia>() {      
+    public int compare(Frequencia o1, Frequencia o2) {
+        return o1.getData().compareTo(o2.getData());
+    }      
+       });
+        
+        return frequencias;
+       
+    }
   
     public static void main(String[] args) {
         UtilFrequencia util = new UtilFrequencia();
