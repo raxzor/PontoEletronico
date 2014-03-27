@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cb007ec9-dc49-4b56-ba3b-9eb0deef0d48">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="451"/>
+	<parameter name="titulo_pagina" class="java.lang.String"/>
+	<parameter name="dias_uteis" class="java.lang.String"/>
+	<parameter name="dias_trabalhados" class="java.lang.String"/>
+	<parameter name="total_faltas" class="java.lang.String"/>
+	<parameter name="salario_bruto" class="java.lang.String"/>
+	<parameter name="desconto_por_faltas" class="java.lang.String"/>
+	<parameter name="desconto_inss" class="java.lang.String"/>
+	<parameter name="desconto_ir" class="java.lang.String"/>
+	<parameter name="salario_liquido" class="java.lang.String"/>
+	<parameter name="percentual_desconto_inss" class="java.lang.String"/>
+	<parameter name="percentual_desconto_ir" class="java.lang.String"/>
+	<parameter name="administrador" class="java.lang.String"/>
+	<field name="DATA" class="java.lang.String"/>
+	<field name="NOME" class="java.lang.String"/>
+	<field name="PORTARIA" class="java.lang.String"/>
+	<field name="PRESENCA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="243" y="0" width="71" height="54" uuid="7d4aaacb-0dd6-4228-b3d4-af91d453c372"/>
+				<imageExpression><![CDATA["C:\\Users\\Gilmar\\Documents\\NetBeansProjects\\ProjetoUnaPonto\\src\\main\\java\\images\\brasão.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="148" y="56" width="256" height="20" uuid="c8a5a2a5-318f-416f-a86b-6d3230a2a20e"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREFEITURA MUNICIPAL DE UIRAÚNA - PB]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="49" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="555" height="20" uuid="2cd73ca9-098e-456b-b936-7936eb868287"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{titulo_pagina}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="47" width="555" height="1" uuid="39a36762-2cf0-46f3-9b85-2ca9fd77de00"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="2" width="100" height="16" uuid="a4f4f106-3f69-48bf-a314-5b9f2c64f14f"/>
+				<text><![CDATA[DATA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="e536bef4-909c-4d92-8e18-3e40266443de"/>
+			</line>
+			<staticText>
+				<reportElement x="111" y="2" width="229" height="16" uuid="72e68399-fcf5-45ff-b490-67d93546f6e5"/>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="2" width="100" height="16" uuid="970e79ae-9774-49cd-ac18-57d05fd956d2"/>
+				<text><![CDATA[PORTARIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="16" uuid="92301612-ac80-40ec-b4b0-f2188b16d044"/>
+				<text><![CDATA[PRESENCA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="100" height="13" uuid="7a4aa5ad-29d5-4f57-8015-7e1478b725d0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="229" height="13" uuid="ac36316f-6a74-45c8-ba4b-f2ee608b5b24"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="0" width="100" height="13" uuid="abb96f02-5251-41d9-8553-e0d5ed29da68"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PORTARIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="13" uuid="bb5ee3f4-3300-4156-8b16-55a8786be1ed"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRESENCA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="207" splitType="Stretch">
+			<staticText>
+				<reportElement x="348" y="8" width="207" height="15" uuid="ec426688-2e7f-4956-ba22-e2a8f5290d86"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[CÁLCULOS SOBRE O SALÁRIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="34" width="68" height="15" uuid="a293dce2-ef00-485d-a101-9516f7ca679e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Dias Úteis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="54" width="68" height="15" uuid="00b43773-5121-4f9e-98a9-e1525ff4c49d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Dias Trabalhados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="74" width="68" height="15" uuid="6532fe96-c647-4dab-8e6e-22ef26068037"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total Faltas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="134" width="68" height="15" uuid="581c32ac-7791-4cff-97b4-7ec1e40c35d5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Desc. INSS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="94" width="68" height="15" uuid="75805441-6ca5-43d6-8caf-ed36ea132d20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Salario Bruto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="114" width="68" height="15" uuid="32b59857-af4d-441d-b112-8d2a824f25fb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Desc. por Faltas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="154" width="68" height="15" uuid="d5cd2cbb-0819-4a81-a9f3-731c34827149"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Desc. Imp. de Renda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="174" width="68" height="15" uuid="bd519510-3d05-4431-ab18-3bab4f360eb4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Salário Líquido]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="416" y="34" width="139" height="15" uuid="6478f590-a541-4a80-b89a-68ce7e54617c"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dias_uteis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="54" width="139" height="15" uuid="966f8457-a013-4665-aab2-6392da0a5f80"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dias_trabalhados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="74" width="139" height="15" uuid="fb526ab7-bc3b-437f-9e96-8d8e2c180d70"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{total_faltas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="94" width="139" height="15" uuid="8f9d40a2-2dea-4a99-923c-4cfb7a568365"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{salario_bruto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="114" width="139" height="15" uuid="7784ced6-6936-4634-9e4b-87749a19ae0b"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{desconto_por_faltas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="134" width="100" height="15" uuid="f96f47f4-f6b4-47d1-a6cf-795bd028797c"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{desconto_inss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="154" width="100" height="15" uuid="b909fc7e-0eec-40b7-9d0c-bf6fd20ca92c"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{desconto_ir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="174" width="139" height="15" uuid="039aedd6-e30e-49db-97b0-ddef141731f9"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{salario_liquido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="134" width="39" height="15" uuid="5e58b861-90d0-4bec-ac97-a42b346238db"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{percentual_desconto_inss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="416" y="154" width="39" height="15" uuid="b0baab51-2ca1-4592-8e9d-fc654188c21e"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{percentual_desconto_ir}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="348" y="26" width="207" height="1" uuid="fc2732aa-d6e9-4d08-9043-8a6811ffb9b3"/>
+			</line>
+			<line>
+				<reportElement x="348" y="3" width="207" height="1" uuid="773e8a34-a01e-46f0-9300-5b47f6115d29"/>
+			</line>
+			<line>
+				<reportElement x="348" y="198" width="207" height="1" uuid="09dde945-77b5-4570-b082-5178aa6efac1"/>
+			</line>
+			<line>
+				<reportElement x="48" y="129" width="195" height="1" uuid="a15e4814-f7dc-46fa-9651-2b70980526e4"/>
+			</line>
+			<textField>
+				<reportElement x="48" y="134" width="195" height="20" uuid="98a319b6-55b2-4364-aa1c-f5ba476d1d9c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{administrador}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>
