@@ -229,4 +229,88 @@ public class RelatorioFrequenciaFuncionario {
             JasperExportManager.exportReportToPdfFile(print, localizacaopdf);
     
     }
+    
+    
+    public static void GeraTodosRelatorio(Integer mes, Integer ano, List<Frequencia> frequencias, String nomePDF) throws JRException, SQLException {
+        JasperReport report = JasperCompileManager.compileReport(localizacaojrxml);
+        
+        negocio.UsuarioLogado usuarioLogado = negocio.UsuarioLogado.getInstancia();
+        Funcionario usuario = usuarioLogado.getUsuarioLogado();
+        
+            Locale.setDefault(Locale.US); 
+            NumberFormat format = NumberFormat.getInstance();    
+            format.setMaximumFractionDigits(2);    
+            format.setMinimumFractionDigits(2);    
+//            format.setMaximumIntegerDigits(2); 
+            format.setMinimumIntegerDigits(2);
+            format.setRoundingMode(RoundingMode.HALF_UP); 
+        
+        UtilFrequencia utilFrequencia = new UtilFrequencia();
+        Integer qtdeDiasMes = utilFrequencia.getMaximoDias(mes, ano);
+        utilFrequencia.getTotalDiasUteis(mes, ano);
+       
+        String dataImprimir = "";
+        String nomeImprimir = "";
+        String portatiaImprimir = "";
+        String presencaImprimir = "";
+        
+        List<UtilFieldsRelatorioFrequencia> funcionarios = new ArrayList<UtilFieldsRelatorioFrequencia>();
+
+        
+        for(Frequencia frequencia : frequencias){
+            dataImprimir = UtilDatas.DateToString(frequencia.getData());
+            nomeImprimir = frequencia.getFuncionario().getNome();
+            portatiaImprimir = frequencia.getFuncionario().getPortaria();
+            presencaImprimir = RelatorioFrequenciaFuncionario.getFrequenciaString(frequencia.getPresenca());
+            System.out.println(dataImprimir + " | " + nomeImprimir + " | " + portatiaImprimir + " | " + presencaImprimir);
+            UtilFieldsRelatorioFrequencia funcionario = new UtilFieldsRelatorioFrequencia(dataImprimir, nomeImprimir, portatiaImprimir, presencaImprimir);
+            funcionarios.add(funcionario);
+        }
+            
+            Integer dias_uteis = utilFrequencia.getTotalDiasUteis(mes, ano);
+            Integer dias_trabalhados = 0;
+            for(Frequencia frequencia:frequencias){
+                if((frequencia.getPresenca() != null) && (frequencia.getPresenca() == true)) dias_trabalhados++;
+                
+            }
+
+            Integer total_faltas = ((dias_uteis)-(dias_trabalhados));
+            Double salario_bruto = frequencias.get(0).getFuncionario().getSalario();
+            Double salarioBrutoAnual = (salario_bruto * 12);
+            Double desconto_por_faltas = (((salario_bruto)/dias_uteis)*total_faltas);
+            String percentual_desconto_inss = "8%";
+            Double aliquota = 0.0;
+            if(salarioBrutoAnual < 21453.24){
+                aliquota = 0.0;
+            }else if((salarioBrutoAnual > 21453.24) && (salarioBrutoAnual <  32151.48)){
+                aliquota = 7.5;
+            }else if((salarioBrutoAnual > 32151.48) && (salarioBrutoAnual < 42869.16)){
+                aliquota = 15.0;
+            }else if((salarioBrutoAnual > 42869.16) && (salarioBrutoAnual <  53565.72)){
+                aliquota = 22.5;
+            }else{
+                aliquota = 27.5;
+            }
+            
+            String percentual_desconto_ir = aliquota.toString() + "%";
+            Double desconto_inss = ((salario_bruto)* 0.08); 
+            Double desconto_ir = ((salario_bruto)*(aliquota / 100));
+            Double salario_liquido = 0D;
+            Double descontos_por_imposto = (desconto_inss + desconto_ir);
+            salario_liquido = ((salario_bruto)-(desconto_por_faltas + descontos_por_imposto)); 
+            if(salario_liquido < descontos_por_imposto){
+                salario_liquido = 0D;
+            }
+            String titulo_pagina = "Relatório de Presença Maio 2014";
+
+
+            UtilParametrosRelatorioFrequencia utilRelatorioFrequenciaMesFuncionario = new UtilParametrosRelatorioFrequencia(dias_uteis.toString(), dias_trabalhados.toString(), total_faltas.toString(), format.format(salario_bruto), format.format(desconto_por_faltas), percentual_desconto_inss, percentual_desconto_ir, format.format(desconto_inss), format.format(desconto_ir), format.format(salario_liquido), titulo_pagina, usuario.getNome());
+
+            Map<String, Object> parametros = utilRelatorioFrequenciaMesFuncionario.getparametros();
+
+            JasperPrint print = JasperFillManager.fillReport(report, parametros, new JRBeanCollectionDataSource(funcionarios));
+
+            JasperExportManager.exportReportToPdfFile(print, "C:/Users/Gilmar/Documents/NetBeansProjects/ProjetoUnaPonto/src/main/java//service/relatorios/" + nomePDF + ".pdf");
+    
+    }
 }

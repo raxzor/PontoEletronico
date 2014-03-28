@@ -5,6 +5,7 @@
 package gui;
 
 import eventos.ButtonHandlerNovoUsuario;
+import eventos.GerarRelatorioTodosFuncionariosHandler;
 import eventos.ProcurarUsuarioFrequenciaHandler;
 import eventos.ProcurarUsuarioHandler;
 import javax.swing.JOptionPane;
@@ -31,7 +32,8 @@ public class Administrador extends javax.swing.JFrame {
         jLabel5.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
         ProcurarUsuarioFrequenciaHandler procurarUsuarioFrequenciaHandler = new ProcurarUsuarioFrequenciaHandler(this);
         jButton3.addActionListener(procurarUsuarioFrequenciaHandler);
-        jButton6.addActionListener(procurarUsuarioFrequenciaHandler);
+        GerarRelatorioTodosFuncionariosHandler gerarRelatorioTodosFuncionariosHandler = new GerarRelatorioTodosFuncionariosHandler(03, 2014);
+        jButton6.addActionListener(gerarRelatorioTodosFuncionariosHandler);
      }
 
     /**
@@ -95,7 +97,7 @@ public class Administrador extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EditarFrequencia.png"))); // NOI18N
-        jButton6.setText("Editar Frequência");
+        jButton6.setText("Relatório Geral");
         getContentPane().add(jButton6);
         jButton6.setBounds(640, 380, 170, 80);
 

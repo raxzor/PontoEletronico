@@ -251,7 +251,12 @@ public class UtilFrequencia {
             if(!datas.contains(d.toString())){
                 Frequencia f = new Frequencia();
                 f.setData(d);
+                //AQUI DÁ PROBLEMA QUANDO O FUNCIONÁRIO NAO POSSUI NENHUMA FREQUENCIA
+                if(frequencias.size() <= 0){
+                    f.setFuncionario(new FuncionarioDao().getfuncionario(idFuncionario));
+                }else{
                 f.setFuncionario(frequencias.get(0).getFuncionario());
+                }
                 f.setPresenca(Boolean.FALSE);
                 for(Date dt : feriados){
                     if(dt.toString().equals(f.getData().toString())){
