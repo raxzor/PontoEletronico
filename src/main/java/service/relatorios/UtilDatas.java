@@ -17,7 +17,7 @@ public class UtilDatas {
     public static Date FormatoData(String data){
         String[] trim = data.split("/");
         Calendar calendar = Calendar.getInstance();
-        calendar.set(new Integer(trim[2]), new Integer(trim[1]), new Integer(trim[0]));
+        calendar.set(new Integer(trim[2]), ((new Integer(trim[1])) - 1), new Integer(trim[0]));
         Date date = new Date(calendar.getTimeInMillis());
         return date;
         

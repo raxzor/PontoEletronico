@@ -30,7 +30,9 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class RelatorioFrequenciaFuncionario {
     
     public static String getFrequenciaString(Boolean valor){
-        if(valor){
+        if(valor == null){
+            return "FERIADO";
+        }else if(valor){
             return "PRESENTE";
         }else{
             return "FALTOU";
@@ -182,8 +184,13 @@ public class RelatorioFrequenciaFuncionario {
         }
             
             Integer dias_uteis = utilFrequencia.getTotalDiasUteis(mes, ano);
-            Integer dias_trabalhados = frequencias.size();
-            Integer total_faltas = (dias_uteis)-(frequencias.size());
+            Integer dias_trabalhados = 0;
+            for(Frequencia frequencia:frequencias){
+                if((frequencia.getPresenca() != null) && (frequencia.getPresenca() == true)) dias_trabalhados++;
+                
+            }
+
+            Integer total_faltas = ((dias_uteis)-(dias_trabalhados));
             Double salario_bruto = frequencias.get(0).getFuncionario().getSalario();
             Double salarioBrutoAnual = (salario_bruto * 12);
             Double desconto_por_faltas = (((salario_bruto)/dias_uteis)*total_faltas);
@@ -204,7 +211,12 @@ public class RelatorioFrequenciaFuncionario {
             String percentual_desconto_ir = aliquota.toString() + "%";
             Double desconto_inss = ((salario_bruto)* 0.08); 
             Double desconto_ir = ((salario_bruto)*(aliquota / 100));
-            Double salario_liquido = ((salario_bruto)-(desconto_por_faltas + (desconto_inss + desconto_ir))); 
+            Double salario_liquido = 0D;
+            Double descontos_por_imposto = (desconto_inss + desconto_ir);
+            salario_liquido = ((salario_bruto)-(desconto_por_faltas + descontos_por_imposto)); 
+            if(salario_liquido < descontos_por_imposto){
+                salario_liquido = 0D;
+            }
             String titulo_pagina = "Relatório de Presença Maio 2014";
 
 

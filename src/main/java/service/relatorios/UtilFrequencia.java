@@ -37,6 +37,127 @@ public class UtilFrequencia {
       return x;
     }
     
+    public List<Date> getDatasFeriadosOrdinarios(Integer mes, Integer ano) {
+        List<Date> feriados = new ArrayList<Date>();
+        Integer diaSemanaComecaMes = this.diasDaSemana(mes, ano);
+        Date data;
+        Calendar c = Calendar.getInstance();
+//        int i = 1; 
+        Integer maximo = this.getMaximoDias(mes, ano);
+        
+        mes--;
+//        System.out.println(maximo);
+        switch (diaSemanaComecaMes) {
+                case 1: //sabado
+                    for(int i = 7; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                break;
+                case 2:
+                    for(int i = 6; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 3:
+                    for(int i = 5; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 4:
+                    for(int i = 4; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 5:
+                    for(int i = 3; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 6:
+                    for(int i = 2; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 7:
+                    for(int i = 1; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+
+            }
+        
+        
+        
+            switch (diaSemanaComecaMes) {
+                case 1: //domingo
+                    for(int i = 1; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                break;
+                case 2:
+                    for(int i = 7; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 3:
+                    for(int i = 6; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 4:
+                    for(int i = 5; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 5:
+                    for(int i = 4; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 6:
+                    for(int i = 3; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+                case 7:
+                    for(int i = 2; i <= maximo; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        feriados.add(data);
+                    }
+                    break;
+
+            }
+        
+        return feriados;
+    }
+    
     public Integer getFeriadosOrdinarios(Integer mes, Integer ano){
         
       Integer diaSemanaComecaMes = this.diasDaSemana(mes, ano);
@@ -123,7 +244,7 @@ public class UtilFrequencia {
                 datas.add(frequencia.getData().toString());
             }
         
-        
+        List<Date> feriados = this.getDatasFeriadosOrdinarios(mes, ano);
         for(int i = 1; i <= maxDias; i++){
             c.set(ano, (mes - 1), i);
             d = new Date(c.getTimeInMillis());
@@ -132,7 +253,11 @@ public class UtilFrequencia {
                 f.setData(d);
                 f.setFuncionario(frequencias.get(0).getFuncionario());
                 f.setPresenca(Boolean.FALSE);
-                
+                for(Date dt : feriados){
+                    if(dt.toString().equals(f.getData().toString())){
+                    f.setPresenca(null);
+                }
+                }
                 frequencias.add(f);
              }
             
@@ -151,9 +276,13 @@ public class UtilFrequencia {
     public static void main(String[] args) {
         UtilFrequencia util = new UtilFrequencia();
 //                System.out.println(util.getMaximoDias(2, 2001));
-//            System.out.println(util.diasDaSemana(Integer.SIZE, Integer.SIZE));
+//            System.out.println(util.diasDaSemana(06, 2014));
+                List<Date> f = util.getDatasFeriadosOrdinarios( 8, 2014);
         
-        System.out.println(util.getTotalDiasUteis(01, 2014));
+                for(Date d : f){
+                    System.out.println(d.toString());
+                }
+//        System.out.println(util.getTotalDiasUteis(01, 2014));
 //        Calendar c = Calendar.getInstance();
 //        System.out.println(c.getActualMaximum(Calendar.MONTH));
         

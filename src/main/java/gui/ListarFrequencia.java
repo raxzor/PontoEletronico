@@ -5,8 +5,12 @@
 package gui;
 
 import beans.Frequencia;
+import eventos.AlterarFrequenciaHandler;
+import eventos.ButtonHandlerVoltarFrequencia;
+import eventos.GerarRelatorioFrequenciaMesFuncionarioHandler;
 import java.util.List;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import service.relatorios.RelatorioFrequenciaFuncionario;
 import service.relatorios.UtilDatas;
@@ -30,12 +34,34 @@ public class ListarFrequencia extends javax.swing.JFrame {
           System.out.println("Setou o Table");
     }
     
+    private List<Frequencia> frequencias;
+
+    public List<Frequencia> getFrequencias() {
+        return frequencias;
+    }
+    
     public ListarFrequencia(String[] args, List<Frequencia> frequencias) {
         initComponents();
         setLocationRelativeTo(null);
+        this.frequencias = frequencias;
+        Integer mes;
+        Integer ano;
+        String[] split = new String[3];
+        System.out.println(frequencias.get(0).getData().toString());
+        split = frequencias.get(0).getData().toString().split("-");
+        System.out.println(split.length);
+        mes = Integer.valueOf(split[1]);
+        ano = Integer.valueOf(split[0]);
+        GerarRelatorioFrequenciaMesFuncionarioHandler gerarRelatorioFrequenciaMesFuncionarioHandler = new GerarRelatorioFrequenciaMesFuncionarioHandler(mes, ano, frequencias);
+        jButton3.addActionListener(gerarRelatorioFrequenciaMesFuncionarioHandler);
+        ButtonHandlerVoltarFrequencia buttonHandlerVoltarFrequencia = new ButtonHandlerVoltarFrequencia(this);
+        jButton1.addActionListener(buttonHandlerVoltarFrequencia);
+        AlterarFrequenciaHandler alterarFrequenciaHandler = new AlterarFrequenciaHandler(this);
+        jButton2.addActionListener(alterarFrequenciaHandler);
 //        JTable jTable = new JTable();
         DefaultTableModel model = new DefaultTableModel();
         jTable1.setModel(model);
+        
         
         model.addColumn("Data");
         model.addColumn("Nome Completo Deus");
@@ -68,14 +94,14 @@ public class ListarFrequencia extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1024, 700));
-        setMinimumSize(new java.awt.Dimension(1024, 700));
+        setMinimumSize(new java.awt.Dimension(1050, 680));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -112,25 +138,22 @@ public class ListarFrequencia extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(3).setResizable(false);
         jTable1.getColumnModel().getColumn(3).setPreferredWidth(15);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 670, 180));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 670, 220));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
         jButton1.setText("Voltar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 130, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 130, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editar.png"))); // NOI18N
-        jButton2.setText("Editar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 130, -1));
+        jButton2.setText("Editar Presença");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 490, 140, -1));
 
-        jLabel3.setText("Nome do Usuário: ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 100, 20));
+        jLabel3.setText("Nome do Servidor:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 100, 20));
 
         jLabel4.setToolTipText("");
-        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(153, 153, 153))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 410, 80));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 770, 420));
+        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Frequência Mensal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12), new java.awt.Color(153, 153, 153))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 410, 50));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,6 +162,15 @@ public class ListarFrequencia extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 20));
+
+        jButton3.setText("Emitir Relatório");
+        jButton3.setMaximumSize(new java.awt.Dimension(81, 25));
+        jButton3.setMinimumSize(new java.awt.Dimension(81, 25));
+        jButton3.setPreferredSize(new java.awt.Dimension(81, 25));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 130, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 770, 420));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -187,6 +219,7 @@ public class ListarFrequencia extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

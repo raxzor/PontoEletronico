@@ -31,6 +31,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel5.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
         ProcurarUsuarioFrequenciaHandler procurarUsuarioFrequenciaHandler = new ProcurarUsuarioFrequenciaHandler(this);
         jButton3.addActionListener(procurarUsuarioFrequenciaHandler);
+        jButton6.addActionListener(procurarUsuarioFrequenciaHandler);
      }
 
     /**
