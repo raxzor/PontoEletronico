@@ -101,8 +101,13 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter data = new javax.swing.text.MaskFormatter("##/####"); 
+            jTextField2 = new javax.swing.JFormattedTextField(data); 
+        } 
+        catch (Exception e){ 
+        } 
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -159,7 +164,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nome do Usuário: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 235, 120, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 160, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 160, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/procurar.png"))); // NOI18N
         jButton1.setText("Pesquisar");
@@ -177,10 +182,6 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         jButton4.setText("Voltar");
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 510, 130, -1));
 
-        jLabel6.setText("Bem Vindo, ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(654, 170, 160, -1));
-
-        jTextField2.setText("Ex.: 03/2014");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -266,7 +267,6 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

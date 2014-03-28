@@ -81,7 +81,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, 30));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 210, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -113,7 +113,7 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Registrar Ponto");
         jButton2.setActionCommand("jButton3");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 130, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 130, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/1394264445_Login.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, 60));

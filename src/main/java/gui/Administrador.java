@@ -123,9 +123,11 @@ public class Administrador extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(380, 100, 230, 20);
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Bem vindo Viviano");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(650, 160, 160, 14);
+        jLabel5.setBounds(650, 160, 160, 15);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
