@@ -33,6 +33,9 @@ public class ApagarUsuarioHandler implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         TableModel model = procurarUsuario.getTable().getModel();
+        if(procurarUsuario.getTable().getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Pesquise e selecione um USUÁRIO para removê-lo!");
+        }else{
         String id = (String) model.getValueAt(procurarUsuario.getTable().getSelectedRow(), 4);
        
         String nome = (String) model.getValueAt(procurarUsuario.getTable().getSelectedRow(), 0);
@@ -84,5 +87,5 @@ public class ApagarUsuarioHandler implements ActionListener{
 //            Logger.getLogger(SelecionarUsuarioHandler.class.getName()).log(Level.SEVERE, null, ex);
 //        }
     }
-    
+    }
 }

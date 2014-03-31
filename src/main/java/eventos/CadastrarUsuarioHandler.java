@@ -35,6 +35,23 @@ public class CadastrarUsuarioHandler implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        String senha = new String();
+        for (char c : novoUsuario.getsenha()) {
+            senha = senha + c;
+        }
+        try{
+        UtilDatas.FormatoData(novoUsuario.getDataAdmissao());
+        }catch(NumberFormatException ev){
+        JOptionPane.showMessageDialog(null, "TODOS OS CAMPOS SÃO OBRIGATÓRIOS!");
+        }
+        if((novoUsuario.getNome().equals(""))||
+                (novoUsuario.getlogin().equals("")) || (novoUsuario.getPortaria().equals("")) || 
+                (novoUsuario.getSalario().equals("")) || (senha.equals(""))){
+            JOptionPane.showMessageDialog(null, "TODOS OS CAMPOS SÃO OBRIGATÓRIOS!");
+            
+        }else{
+        
+        
         Funcionario funcionario = new Funcionario();
         funcionario.setNome(novoUsuario.getNome());
         funcionario.setDataAdmissao(UtilDatas.FormatoData(novoUsuario.getDataAdmissao()));
@@ -43,10 +60,10 @@ public class CadastrarUsuarioHandler implements ActionListener {
         funcionario.setSalario(novoUsuario.getSalario());
         funcionario.setNivelAcesso(novoUsuario.getNivelAcesso());
         FuncionarioDao funcionarioDao = new FuncionarioDao();
-        String senha = new String();
-        for (char c : novoUsuario.getsenha()) {
-            senha = senha + c;
-        }
+//        String senha = new String();
+//        for (char c : novoUsuario.getsenha()) {
+//            senha = senha + c;
+//        }
         funcionario.setSenha(senha);
         try {
             funcionarioDao.inserirFuncionario(funcionario);
@@ -72,7 +89,7 @@ public class CadastrarUsuarioHandler implements ActionListener {
             JOptionPane.showMessageDialog(null, "Atenção, já existe um usuário associado ao login " + funcionario.getLogin().toUpperCase() + " !");
         }
 
-
+        }
 
     }
 }

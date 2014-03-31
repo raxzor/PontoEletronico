@@ -17,15 +17,14 @@ public class FachadaFrequencia {
     
     public Boolean verificarFrequenciaDia(Integer idFuncionario) throws SQLException{
         FrequenciaDao frequenciaDao = new FrequenciaDao();
-        System.out.println(idFuncionario);
         Date ultimaFrequencia = frequenciaDao.ultimaFrequenciaRegistrada(idFuncionario);
+//        System.out.println(ultimaFrequencia);
         Date dataCorrente = new Date(Calendar.getInstance().getTimeInMillis());
-        System.out.println(dataCorrente);
-        System.out.println(ultimaFrequencia);
         Boolean retorno = true;
         if((ultimaFrequencia == null) || (!ultimaFrequencia.toString().equals(dataCorrente.toString()))){
             retorno = false;
         }
+//        System.out.println(retorno);
         return retorno;
     }
 }

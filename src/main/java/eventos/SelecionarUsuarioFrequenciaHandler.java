@@ -20,9 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import net.sf.jasperreports.engine.JRException;
 import service.relatorios.RelatorioFrequenciaFuncionario;
+import service.relatorios.UtilDatas;
 import service.relatorios.UtilFrequencia;
 
 /**
@@ -40,7 +42,16 @@ public class SelecionarUsuarioFrequenciaHandler implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
 
+         try{
+        UtilDatas.FormatoDataMesAno(procurarUsuario.getData());
+        }catch(NumberFormatException ev){
+        JOptionPane.showMessageDialog(null, "Por Favor, insira uma data válida!");
+        }
+        
         TableModel model = procurarUsuario.getTable().getModel();
+        if(procurarUsuario.getTable().getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Pesquise e selecione um USUÁRIO para emitir sua frequência!");
+        }else{
         String idString = (String) model.getValueAt(procurarUsuario.getTable().getSelectedRow(), 4);
 
         Integer id = new Integer(idString);
@@ -72,5 +83,6 @@ public class SelecionarUsuarioFrequenciaHandler implements ActionListener {
 
 
         
+    }
     }
 }

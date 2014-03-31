@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 /**
@@ -32,6 +33,9 @@ public class SelecionarUsuarioHandler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         TableModel model = procurarUsuario.getTable().getModel();
+        if(procurarUsuario.getTable().getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Pesquise e selecione um USUÁRIO para editá-lo!");
+        }else{
         String id = (String) model.getValueAt(procurarUsuario.getTable().getSelectedRow(), 4);
 
         Integer idUsuario = new Integer(id);
@@ -56,6 +60,7 @@ public class SelecionarUsuarioHandler implements ActionListener {
         procurarUsuario.dispose();
         NovoUsuario.main(valores);
 
+        }
 
         
     }

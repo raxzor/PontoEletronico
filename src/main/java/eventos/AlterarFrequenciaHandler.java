@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import service.relatorios.UtilDatas;
 import service.relatorios.UtilFrequencia;
@@ -36,6 +37,9 @@ public class AlterarFrequenciaHandler implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         FrequenciaDao frequenciaDao = new FrequenciaDao();
         TableModel model = listarFrequencia.getTable().getModel();
+        if(listarFrequencia.getTable().getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(null, "Selecione uma FREQUÊNCIA da Lista para editá-la!");
+        }else{
         String dataString = (String) model.getValueAt(listarFrequencia.getTable().getSelectedRow(), 0);
         System.out.println(dataString);
         List<Frequencia> frequencias = listarFrequencia.getFrequencias();
@@ -79,5 +83,5 @@ public class AlterarFrequenciaHandler implements ActionListener {
        
         ListarFrequencia.main(null, frequencias);
     }
-    
+    }
 }

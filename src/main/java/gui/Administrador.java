@@ -5,10 +5,9 @@
 package gui;
 
 import eventos.ButtonHandlerNovoUsuario;
-import eventos.GerarRelatorioTodosFuncionariosHandler;
 import eventos.ProcurarUsuarioFrequenciaHandler;
 import eventos.ProcurarUsuarioHandler;
-import javax.swing.JOptionPane;
+import eventos.TelaGerarRelatoriosHandler;
 import negocio.UsuarioLogado;
 
 /**
@@ -32,8 +31,8 @@ public class Administrador extends javax.swing.JFrame {
         jLabel5.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
         ProcurarUsuarioFrequenciaHandler procurarUsuarioFrequenciaHandler = new ProcurarUsuarioFrequenciaHandler(this);
         jButton3.addActionListener(procurarUsuarioFrequenciaHandler);
-        GerarRelatorioTodosFuncionariosHandler gerarRelatorioTodosFuncionariosHandler = new GerarRelatorioTodosFuncionariosHandler(03, 2014);
-        jButton6.addActionListener(gerarRelatorioTodosFuncionariosHandler);
+        TelaGerarRelatoriosHandler gerarRelatoriosHandler = new TelaGerarRelatoriosHandler(this);
+        jButton6.addActionListener(gerarRelatoriosHandler);
      }
 
     /**
