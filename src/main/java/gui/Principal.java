@@ -115,10 +115,10 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setActionCommand("jButton3");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 130, 30));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/1394264445_Login.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gilmar\\Documents\\NetBeansProjects\\ProjetoUnaPonto\\src\\main\\java\\images\\1394264445_Login.png")); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, 60));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/brasão_tamanho_pequeno.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gilmar\\Documents\\NetBeansProjects\\ProjetoUnaPonto\\src\\main\\java\\images\\brasão_tamanho_pequeno.png")); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lightblue.jpg"))); // NOI18N
