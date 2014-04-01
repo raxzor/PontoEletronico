@@ -38,7 +38,7 @@
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-    <Property name="useNullLayout" type="boolean" value="false"/>
+    <Property name="useNullLayout" type="boolean" value="true"/>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButton3">
@@ -168,7 +168,7 @@
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Gilmar\Documents\NetBeansProjects\ProjetoUnaPonto\src\main\java\images\1394264445_Login.png"/>
+          <Image iconType="3" name="/gui/images/1394264445_Login.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -180,7 +180,7 @@
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Gilmar\Documents\NetBeansProjects\ProjetoUnaPonto\src\main\java\images\bras&#xe3;o_tamanho_pequeno.png"/>
+          <Image iconType="3" name="/gui/images/bras&#xe3;o_tamanho_pequeno.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -192,7 +192,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/lightblue.jpg"/>
+          <Image iconType="3" name="/gui/images/lightblue.jpg"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
@@ -209,7 +209,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/backgroundBlue.jpg"/>
+          <Image iconType="3" name="/gui/images/backgroundBlue.jpg"/>
         </Property>
       </Properties>
       <Constraints>

@@ -60,30 +60,37 @@ public class ImprimirFrequencias extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1035, 690));
         setPreferredSize(new java.awt.Dimension(1035, 690));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 1100, 30));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 90, -1));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -2, 1100, 30);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(490, 340, 90, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Data: ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 345, 40, -1));
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(440, 345, 40, 15);
 
         jButton1.setText("Gerar Relatórios");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(460, 410, 111, 23);
 
         jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Emissão de Relatórios"));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 220, 190));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(410, 290, 220, 190);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 770, 430));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(130, 160, 770, 430);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMinimumSize(new java.awt.Dimension(1024, 700));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 720));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1060, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

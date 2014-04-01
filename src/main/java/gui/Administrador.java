@@ -135,7 +135,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-10, -10, 1060, 760);
+        jLabel1.setBounds(-10, 0, 1060, 750);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

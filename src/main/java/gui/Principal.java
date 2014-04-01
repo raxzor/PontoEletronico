@@ -72,7 +72,7 @@ public class Principal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1024, 700));
         setName("Principal"); // NOI18N
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("Entrar");
@@ -81,52 +81,65 @@ public class Principal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, 30));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 210, -1));
+        getContentPane().add(jButton3);
+        jButton3.setBounds(580, 490, 67, 30);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(440, 380, 210, 20);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuário");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, -1, -1));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(440, 360, 48, 16);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Senha");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(440, 410, 40, 16);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Controle de Acesso");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 120, 20));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(480, 180, 120, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("SisPD");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, -1, -1));
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(510, 160, 51, 22);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Copyright © 2014 Virtua Softwares. Todos os direitos reservados.");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 630, 410, 20));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 210, -1));
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(340, 630, 410, 20);
+        getContentPane().add(jPasswordField1);
+        jPasswordField1.setBounds(440, 430, 210, 20);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Registrar Ponto");
         jButton2.setActionCommand("jButton3");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 490, 130, 30));
+        getContentPane().add(jButton2);
+        jButton2.setBounds(440, 490, 130, 30);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gilmar\\Documents\\NetBeansProjects\\ProjetoUnaPonto\\src\\main\\java\\images\\1394264445_Login.png")); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, 60));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/1394264445_Login.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(520, 280, 48, 60);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gilmar\\Documents\\NetBeansProjects\\ProjetoUnaPonto\\src\\main\\java\\images\\brasão_tamanho_pequeno.png")); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, -1));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/brasão_tamanho_pequeno.png"))); // NOI18N
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(480, 50, 131, 102);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lightblue.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/lightblue.jpg"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 310, 290));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(390, 260, 310, 290);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 680));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 1040, 680);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
