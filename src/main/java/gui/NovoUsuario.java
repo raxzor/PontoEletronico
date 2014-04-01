@@ -7,9 +7,11 @@ package gui;
 import eventos.AlterarUsuarioHandler;
 import eventos.ButtonHandlerCancelarCadastroUsuario;
 import eventos.CadastrarUsuarioHandler;
+import eventos.PegaValorCheckBoxButtonHandler;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import negocio.UsuarioLogado;
 import service.relatorios.UtilDatas;
@@ -28,7 +30,6 @@ public class NovoUsuario extends javax.swing.JFrame {
           initComponents();
           JOptionPane.setRootFrame(this);
           setLocationRelativeTo(null);
-          
                   
           jLabel15.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
 
@@ -36,6 +37,8 @@ public class NovoUsuario extends javax.swing.JFrame {
           jButton2.addActionListener(buttonHandlerCancelarCadastroUsuario);
           if(valores == null){
           CadastrarUsuarioHandler cadastrarUsuarioHandler = new CadastrarUsuarioHandler(this);
+//          PegaValorCheckBoxButtonHandler pegaValorCheckBoxButtonHandler = new PegaValorCheckBoxButtonHandler(this);
+//          jButton1.addActionListener(pegaValorCheckBoxButtonHandler);
           jButton1.addActionListener(cadastrarUsuarioHandler);
           }
           if (valores != null) {
@@ -52,11 +55,36 @@ public class NovoUsuario extends javax.swing.JFrame {
                 jComboBox1.setSelectedIndex(0);
             }
             jButton1.setText("Alterar");
+            String[] split = valores[8].split("-");
+            for(String dia : split){
+                if(dia.equals("0")){
+                    jCheckBox1.setSelected(true);
+                }else if(dia.equals("1")){
+                    jCheckBox2.setSelected(true);
+                }else if(dia.equals("2")){
+                    jCheckBox3.setSelected(true);
+                }else if(dia.equals("3")){
+                    jCheckBox4.setSelected(true);
+                }else if(dia.equals("4")){
+                    jCheckBox5.setSelected(true);
+                }
+            }
         }
           
           
           
     }
+    
+   public JCheckBox[] getJcheckboxes(){
+       JCheckBox[] jcheckboxes = new JCheckBox[5];
+       jcheckboxes[0] = jCheckBox1;
+       jcheckboxes[1] = jCheckBox2;
+       jcheckboxes[2] = jCheckBox3;
+       jcheckboxes[3] = jCheckBox4;
+       jcheckboxes[4] = jCheckBox5;
+       
+       return jcheckboxes;
+   }
     
    public String getNome(){
        return jTextField1.getText();
@@ -122,7 +150,6 @@ public class NovoUsuario extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel14 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         try{ 
@@ -132,6 +159,13 @@ public class NovoUsuario extends javax.swing.JFrame {
         catch (Exception e){ 
         } 
         jLabel12 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -145,55 +179,55 @@ public class NovoUsuario extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("Salário:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 70, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 70, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Data de Admissão: ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 255, -1, 14));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, 14));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Senha:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 425, 60, 14));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 60, 14));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
         jLabel3.setText("Usuário:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 385, 70, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 70, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Nº da Portaria: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 290, 120, 20));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 140, 25));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 120, 20));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, 140, 25));
 
         jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 170, 27));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 120, 27));
+        getContentPane().add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, 27));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 120, 27));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 140, 25));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 140, 25));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 102, 102));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ok.png"))); // NOI18N
         jButton1.setText("Cadastrar");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 475, 120, 30));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 370, 27));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 370, 27));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("Nome Completo:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 210, 120, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 120, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,24 +260,52 @@ public class NovoUsuario extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 285, -1, -1));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(153, 153, 153));
         jLabel14.setText("Nível de Acesso:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, -1, -1));
-
-        jLabel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 51, 51)));
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 600, 120));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 153, 153));
         jLabel15.setText("Bem Vindo, ");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 160, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 120, 27));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 120, 27));
 
         jLabel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.darkGray));
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 600, 160));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 640, 160));
+
+        jCheckBox1.setText("Segunda-Feira");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, 120, -1));
+
+        jCheckBox2.setText("Terça-Feira");
+        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 90, -1));
+
+        jCheckBox3.setText("Quarta-Feira");
+        getContentPane().add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, 90, -1));
+
+        jCheckBox4.setText("Quinta-Feira");
+        getContentPane().add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 110, -1));
+
+        jCheckBox5.setText("Sexta-Feira");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 100, -1));
+
+        jLabel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 51, 51)));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 270, 120));
+
+        jLabel17.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Expediente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.black));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 350, 120));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueCadastro.jpg"))); // NOI18N
@@ -274,6 +336,14 @@ public class NovoUsuario extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,6 +386,11 @@ public class NovoUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel1;
@@ -325,6 +400,7 @@ public class NovoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -4,6 +4,7 @@
  */
 package dao;
 
+import beans.Expediente;
 import beans.Funcionario;
 import conectionbd.ConnectionPostgres;
 import java.sql.Connection;
@@ -35,9 +36,17 @@ public class FuncionarioDao {
             ps.setBoolean(6, f.getNivelAcesso());
             ps.setDouble(7, f.getSalario());
 
+            
             ps.execute();
             ps.close();
             con.close();
+            
+            
+            
+            ExpedienteDao expedienteDao = new ExpedienteDao();
+            for(Expediente expediente :  f.getExpedientes()){
+                expedienteDao.inserir(expediente, this.getfuncionario(f.getLogin(), f.getSenha()).getId());
+            }
     }
     
     public void inserirAdministrador(Funcionario f) throws SQLException{
@@ -76,6 +85,13 @@ public class FuncionarioDao {
         ps.executeUpdate();
         ps.close();
         con.close();
+        
+        ExpedienteDao expedienteDao = new ExpedienteDao();
+        expedienteDao.deletarExpedientes(idFuncionario);
+        for(Expediente expediente : f.getExpedientes()){
+            expedienteDao.inserir(expediente, idFuncionario);
+        }
+        
     }
     
     public List<Funcionario> Listarfuncionarios() throws SQLException{
@@ -162,6 +178,7 @@ public class FuncionarioDao {
             funcionario.setSenha(rs.getString("senha"));
             funcionario.setNivelAcesso(rs.getBoolean("nivelAcesso"));
             funcionario.setSalario(rs.getDouble("salario"));
+            funcionario.setExpedientes(new ExpedienteDao().getExpedientes(funcionario.getId()));
         }
         return funcionario;
     }

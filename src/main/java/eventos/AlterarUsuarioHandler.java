@@ -4,6 +4,7 @@
  */
 package eventos;
 
+import beans.Expediente;
 import beans.Funcionario;
 import dao.FuncionarioDao;
 import dao.OperacaoLogDao;
@@ -13,8 +14,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import negocio.OperacaoLog;
 import service.relatorios.UsuarioLogado;
@@ -42,6 +46,18 @@ public class AlterarUsuarioHandler implements ActionListener {
         funcionario.setPortaria(novoUsuario.getPortaria());
         funcionario.setSalario(novoUsuario.getSalario());
         funcionario.setNivelAcesso(novoUsuario.getNivelAcesso());
+        List <Expediente> expedientes = new ArrayList<Expediente>();
+            JCheckBox[] jcheckboxes = new JCheckBox[5];
+            jcheckboxes = novoUsuario.getJcheckboxes();
+            for (int i = 0; i < jcheckboxes.length; i ++) {
+                Expediente expediente = new Expediente();
+                if(jcheckboxes[i].isSelected()){
+                expediente.setDiaSemana(i);
+                expedientes.add(expediente);
+                }
+            }
+        
+        funcionario.setExpedientes(expedientes);
         FuncionarioDao funcionarioDao = new FuncionarioDao();
         
         if (novoUsuario.getsenha().length == 0) {
@@ -58,7 +74,7 @@ public class AlterarUsuarioHandler implements ActionListener {
             funcionario.setSenha(senha);
         }
         
-        System.out.println("Funcionario = " + funcionario.getLogin() + " " + funcionario.getNome() + " " + funcionario.getPortaria() + " " + funcionario.getSenha() + " " + funcionario.getDataAdmissao() + " " + funcionario.getId() + " " + funcionario.getNivelAcesso() + " " + funcionario.getSalario());
+//        System.out.println("Funcionario = " + funcionario.getLogin() + " " + funcionario.getNome() + " " + funcionario.getPortaria() + " " + funcionario.getSenha() + " " + funcionario.getDataAdmissao() + " " + funcionario.getId() + " " + funcionario.getNivelAcesso() + " " + funcionario.getSalario());
         
         try {
             

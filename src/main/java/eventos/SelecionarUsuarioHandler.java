@@ -4,6 +4,7 @@
  */
 package eventos;
 
+import beans.Expediente;
 import beans.Funcionario;
 import dao.FuncionarioDao;
 import gui.NovoUsuario;
@@ -11,7 +12,6 @@ import gui.ProcurarUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -47,7 +47,7 @@ public class SelecionarUsuarioHandler implements ActionListener {
             Logger.getLogger(SelecionarUsuarioHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        String[] valores = new String[8];
+        String[] valores = new String[9];
 
         valores[0] = f.getNome();
         valores[1] = f.getLogin();
@@ -57,6 +57,11 @@ public class SelecionarUsuarioHandler implements ActionListener {
         valores[5] = f.getDataAdmissao().toString();
         valores[6] = f.getSalario().toString();
         valores[7] = f.getNivelAcesso().toString();
+        String expedientes = new String();
+        for(Expediente expediente : f.getExpedientes()){
+            expedientes = expedientes + "-" + expediente.getDiaSemana().toString();
+        }
+        valores[8] = expedientes;
         procurarUsuario.dispose();
         NovoUsuario.main(valores);
 

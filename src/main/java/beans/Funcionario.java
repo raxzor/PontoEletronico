@@ -5,6 +5,7 @@
 package beans;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  *
@@ -19,7 +20,8 @@ public class Funcionario {
     private Date dataAdmissao;
     private Boolean nivelAcesso;
     private Double salario;
-
+    private List<Expediente> expedientes;
+    
     public Integer getId() {
         return id;
     }
@@ -82,6 +84,14 @@ public class Funcionario {
 
     public void setSalario(Double salario) {
         this.salario = salario;
+    }
+
+    public List<Expediente> getExpedientes() {
+        return expedientes;
+    }
+
+    public void setExpedientes(List<Expediente> expedientes) {
+        this.expedientes = expedientes;
     }
     
 }

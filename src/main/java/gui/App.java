@@ -63,12 +63,20 @@ public class App
 //                    " | " + frequencia.getFuncionario().getPortaria() + " | " + frequencia.getPresenca().toString());
 //        }
         
-        UtilFrequencia uf = new UtilFrequencia();
-        List<Frequencia> frequencias = uf.getFrequenciaMes(03, 2014, 13);
+//        UtilFrequencia uf = new UtilFrequencia();
+//        List<Frequencia> frequencias = uf.getFrequenciaMes(03, 2014, 13);
+//        
+//        for(Frequencia frequencia : frequencias){
+//            System.out.println(frequencia.getData() + " | " + frequencia.getFuncionario().getNome() +
+//                    " | " + frequencia.getFuncionario().getPortaria() + " | " + frequencia.getPresenca().toString());
+//        }
         
-        for(Frequencia frequencia : frequencias){
-            System.out.println(frequencia.getData() + " | " + frequencia.getFuncionario().getNome() +
-                    " | " + frequencia.getFuncionario().getPortaria() + " | " + frequencia.getPresenca().toString());
+        String[] a = new String[10];
+        
+        String[] b = a;
+        
+        for(String c : b){
+            System.out.println(c);
         }
     }
 }
