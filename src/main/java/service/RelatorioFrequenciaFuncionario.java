@@ -41,7 +41,7 @@ public class RelatorioFrequenciaFuncionario {
         }
     }
     
-    private static String localizacaojrxml = new String().getClass().getResource("service/relatorios/FrequenciaMesFuncionario.jrxml").toString().substring(6);
+    private static String localizacaojrxml = "C:/SisPD/FrequenciaMesFuncionario.jrxml";
     public static String localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Documents/";
     public static void GeraRelatorio(Integer mes, Integer ano, Integer idFuncionario) throws JRException, SQLException {
         JasperReport report = JasperCompileManager.compileReport("C:/Users/Gilmar/Documents/NetBeansProjects/ProjetoUnaPonto/src/main/java//service/relatorios/FrequenciaMesFuncionario.jrxml");

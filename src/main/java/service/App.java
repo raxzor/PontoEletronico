@@ -88,7 +88,7 @@ public class App
     	
 //			System.out.println(System.getProperty("user.name") );
     	
-    	System.out.println(new String().getClass().getResource("/service/relatorios/FrequenciaMesFuncionario.jrxml").toString().substring(6));
+    	System.out.println(new String().getClass().getResource("C:/Users/Gilmar/Documents/joao.pdf"));
 //    	System.out.println(new String().getClass().getResource("/service/relatorios/FrequenciaMesFuncionario.jrxml").toString().substring(6));
 //    	"C:/Users/" + System.getProperty("user.name") + "/Documents/"
 //    	File pdf = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/windows.pdf");  
