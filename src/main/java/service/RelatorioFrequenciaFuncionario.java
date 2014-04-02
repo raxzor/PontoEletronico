@@ -116,23 +116,39 @@ public class RelatorioFrequenciaFuncionario {
             Double salario_bruto = frequencias.get(0).getFuncionario().getSalario();
             Double salarioBrutoAnual = (salario_bruto * 12);
             Double desconto_por_faltas = (((salario_bruto)/dias_uteis)*total_faltas);
-            String percentual_desconto_inss = "8%";
+            Double deducao = 0D;
             Double aliquota = 0.0;
             if(salarioBrutoAnual < 21453.24){
                 aliquota = 0.0;
             }else if((salarioBrutoAnual > 21453.24) && (salarioBrutoAnual <  32151.48)){
                 aliquota = 7.5;
+                deducao = 134.08;
             }else if((salarioBrutoAnual > 32151.48) && (salarioBrutoAnual < 42869.16)){
                 aliquota = 15.0;
+                deducao = 335.03;
             }else if((salarioBrutoAnual > 42869.16) && (salarioBrutoAnual <  53565.72)){
                 aliquota = 22.5;
+                deducao = 602.96;
             }else{
                 aliquota = 27.5;
+                deducao = 826.15;
             }
             
             String percentual_desconto_ir = aliquota.toString() + "%";
-            Double desconto_inss = ((salario_bruto)* 0.08); 
-            Double desconto_ir = ((salario_bruto)*(aliquota / 100));
+            
+            String percentual_desconto_inss = "0%";
+        	Double desconto_inss = 0D;
+            if((salario_bruto < 1317.07)){
+            	percentual_desconto_inss = "8%";
+            	desconto_inss = ((salario_bruto)* (8/100));
+    		}else if((salario_bruto > 1317.07) && (salario_bruto < 2195.13)){
+	            percentual_desconto_inss = "9%";
+	            desconto_inss = ((salario_bruto)* (9/100));
+            }else if((salario_bruto > 2195.13) && (salario_bruto < 4390.24)){
+	            percentual_desconto_inss = "11%";
+	            desconto_inss = ((salario_bruto)* (11/100)); 
+            }
+            Double desconto_ir = ((salario_bruto)*(aliquota / 100) - deducao);
             Double salario_liquido = ((salario_bruto)-(desconto_por_faltas + (desconto_inss + desconto_ir))); 
             String titulo_pagina = "Relatório de Presença Maio 2014";
 
@@ -198,26 +214,36 @@ public class RelatorioFrequenciaFuncionario {
             Double desconto_por_faltas = (((salario_bruto)/dias_uteis)*total_faltas);
             String percentual_desconto_inss = "8%";
             Double aliquota = 0.0;
-            if(salarioBrutoAnual < 21453.24){
+            Double deducao = 0.0;
+            if(salario_bruto < 1787.77){
                 aliquota = 0.0;
-            }else if((salarioBrutoAnual > 21453.24) && (salarioBrutoAnual <  32151.48)){
+                deducao = 0.0;
+            }else if((salario_bruto >= 1787.77) && (salario_bruto <=  2679.29)){
                 aliquota = 7.5;
-            }else if((salarioBrutoAnual > 32151.48) && (salarioBrutoAnual < 42869.16)){
+                deducao = 134.08;
+            }else if((salario_bruto >= 2679.30) && (salario_bruto <= 3572.43)){
                 aliquota = 15.0;
-            }else if((salarioBrutoAnual > 42869.16) && (salarioBrutoAnual <  53565.72)){
+                deducao = 335.03;
+            }else if((salario_bruto >= 3572.44) && (salario_bruto <=  4463.81)){
                 aliquota = 22.5;
+                deducao = 602.96;
             }else{
                 aliquota = 27.5;
+                deducao = 826.15;
             }
             
             String percentual_desconto_ir = aliquota.toString() + "%";
             Double desconto_inss = ((salario_bruto)* 0.08); 
-            Double desconto_ir = ((salario_bruto)*(aliquota / 100));
+            Double desconto_ir = ((salario_bruto)*(aliquota / 100) - deducao);
             Double salario_liquido = 0D;
             Double descontos_por_imposto = (desconto_inss + desconto_ir);
             salario_liquido = ((salario_bruto)-(desconto_por_faltas + descontos_por_imposto)); 
-            if(salario_liquido < descontos_por_imposto){
+            if(dias_trabalhados == 0){
                 salario_liquido = 0D;
+                desconto_inss = 0D;
+                desconto_ir = 0D;
+//                percentual_desconto_inss = "0%";
+//                percentual_desconto_ir = "0%";
             }
             String titulo_pagina = "Relatório de Presença Maio 2014";
 
