@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package service.relatorios;
+package service;
 
 import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
 import dao.FuncionarioDao;
-import gui.App;
+
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;

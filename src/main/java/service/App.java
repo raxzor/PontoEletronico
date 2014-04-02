@@ -1,7 +1,12 @@
-package gui;
+package service;
 
 import beans.Frequencia;
 import dao.FrequenciaDao;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,7 +15,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import service.relatorios.UtilFrequencia;
+
+import javax.swing.JOptionPane;
 
 /**
  * Hello world!
@@ -71,12 +77,26 @@ public class App
 //                    " | " + frequencia.getFuncionario().getPortaria() + " | " + frequencia.getPresenca().toString());
 //        }
         
-        String[] a = new String[10];
-        
-        String[] b = a;
-        
-        for(String c : b){
-            System.out.println(c);
-        }
+//        String[] a = new String[10];
+//        
+//        String[] b = a;
+//        
+//        for(String c : b){
+//            System.out.println(c);
+//        }
+    	
+    	
+//			System.out.println(System.getProperty("user.name") );
+    	
+    	System.out.println(new String().getClass().getResource("/service/relatorios/FrequenciaMesFuncionario.jrxml").toString().substring(6));
+//    	System.out.println(new String().getClass().getResource("/service/relatorios/FrequenciaMesFuncionario.jrxml").toString().substring(6));
+//    	"C:/Users/" + System.getProperty("user.name") + "/Documents/"
+//    	File pdf = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/windows.pdf");  
+//    	try {  
+//    	  Desktop.getDesktop().open(pdf);  
+//    	} catch(Exception ex) {  
+//    	  ex.printStackTrace();  
+//    	  JOptionPane.showMessageDialog(null, "Erro no Desktop: " + ex);  
+//    	}  
     }
 }

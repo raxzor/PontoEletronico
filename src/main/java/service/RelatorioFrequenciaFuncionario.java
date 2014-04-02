@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package service.relatorios;
+package service;
 
 import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
+
 import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.text.NumberFormat;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -39,8 +41,8 @@ public class RelatorioFrequenciaFuncionario {
         }
     }
     
-    private static String localizacaojrxml = "C:/Users/Gilmar/Documents/NetBeansProjects/ProjetoUnaPonto/src/main/java//service/relatorios/FrequenciaMesFuncionario.jrxml";
-    public static String localizacaopdf = "C:/Users/Gilmar/Documents/NetBeansProjects/ProjetoUnaPonto/src/main/java//service/relatorios/relatorio_frequencia_mes_funcionario.pdf";
+    private static String localizacaojrxml = new String().getClass().getResource("service/relatorios/FrequenciaMesFuncionario.jrxml").toString().substring(6);
+    public static String localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Documents/";
     public static void GeraRelatorio(Integer mes, Integer ano, Integer idFuncionario) throws JRException, SQLException {
         JasperReport report = JasperCompileManager.compileReport("C:/Users/Gilmar/Documents/NetBeansProjects/ProjetoUnaPonto/src/main/java//service/relatorios/FrequenciaMesFuncionario.jrxml");
         
@@ -225,8 +227,10 @@ public class RelatorioFrequenciaFuncionario {
             Map<String, Object> parametros = utilRelatorioFrequenciaMesFuncionario.getparametros();
 
             JasperPrint print = JasperFillManager.fillReport(report, parametros, new JRBeanCollectionDataSource(funcionarios));
+            
+            String nomePDF = frequencias.get(0).getFuncionario().getNome();
 
-            JasperExportManager.exportReportToPdfFile(print, localizacaopdf);
+            JasperExportManager.exportReportToPdfFile(print, localizacaopdf + nomePDF + ".pdf");
     
     }
     
@@ -309,7 +313,7 @@ public class RelatorioFrequenciaFuncionario {
 
             JasperPrint print = JasperFillManager.fillReport(report, parametros, new JRBeanCollectionDataSource(funcionarios));
 
-            JasperExportManager.exportReportToPdfFile(print, "C:/Users/Gilmar/Documents/NetBeansProjects/ProjetoUnaPonto/src/main/java//service/relatorios/" + nomePDF + ".pdf");
+            JasperExportManager.exportReportToPdfFile(print, "C:/Users/" + System.getProperty("user.name") + "/Documents/" + nomePDF + ".pdf");
     
     }
 }

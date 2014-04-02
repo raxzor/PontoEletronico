@@ -9,12 +9,15 @@ import beans.Funcionario;
 import eventos.AlterarFrequenciaHandler;
 import eventos.ButtonHandlerVoltarFrequencia;
 import eventos.GerarRelatorioFrequenciaMesFuncionarioHandler;
+
 import java.util.List;
+
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import service.relatorios.RelatorioFrequenciaFuncionario;
-import service.relatorios.UtilDatas;
+
+import service.RelatorioFrequenciaFuncionario;
+import service.UtilDatas;
 
 /**
  *

@@ -7,6 +7,7 @@ package dao;
 import beans.Frequencia;
 import beans.Funcionario;
 import conectionbd.ConnectionPostgres;
+
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -15,8 +16,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import service.relatorios.UsuarioLogado;
-import service.relatorios.UtilFrequencia;
+
+import service.UsuarioLogado;
+import service.UtilFrequencia;
 
 /**
  *

@@ -8,16 +8,19 @@ import beans.Funcionario;
 import dao.OperacaoLogDao;
 import gui.Administrador;
 import gui.Principal;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
+
 import negocio.OperacaoLog;
 import negocio.UsuarioLogado;
-import service.relatorios.LoginInterface;
+import service.LoginInterface;
 
 /**
  *

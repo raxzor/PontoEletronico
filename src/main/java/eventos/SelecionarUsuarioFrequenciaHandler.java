@@ -10,6 +10,7 @@ import dao.FrequenciaDao;
 import dao.FuncionarioDao;
 import gui.ListarFrequencia;
 import gui.ProcurarUsuarioFrequencia;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -17,10 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
-import service.relatorios.UtilDatas;
-import service.relatorios.UtilFrequencia;
+
+import service.UtilDatas;
+import service.UtilFrequencia;
 
 /**
  *

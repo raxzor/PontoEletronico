@@ -180,7 +180,10 @@ public class FuncionarioDao {
             funcionario.setSalario(rs.getDouble("salario"));
             funcionario.setExpedientes(new ExpedienteDao().getExpedientes(funcionario.getId()));
         }
+        ps.close();
+        con.close();
         return funcionario;
+        
     }
     
     public void setAdministrador() throws SQLException{

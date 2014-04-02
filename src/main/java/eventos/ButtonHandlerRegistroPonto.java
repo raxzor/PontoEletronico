@@ -9,6 +9,7 @@ import beans.Funcionario;
 import dao.FrequenciaDao;
 import dao.OperacaoLogDao;
 import gui.Principal;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
@@ -17,10 +18,12 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
+
 import negocio.FachadaFrequencia;
 import negocio.OperacaoLog;
-import service.relatorios.LoginInterface;
+import service.LoginInterface;
 
 /**
  *

@@ -6,8 +6,10 @@ package autenticacao;
 
 import beans.Funcionario;
 import dao.FuncionarioDao;
+
 import java.sql.SQLException;
-import service.relatorios.UsuarioLogado;
+
+import service.UsuarioLogado;
 
 /**
  *

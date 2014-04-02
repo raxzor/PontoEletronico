@@ -8,16 +8,19 @@ import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
 import gui.ListarFrequencia;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
-import service.relatorios.UtilDatas;
-import service.relatorios.UtilFrequencia;
+
+import service.UtilDatas;
+import service.UtilFrequencia;
 
 /**
  *

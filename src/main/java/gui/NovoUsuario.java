@@ -8,13 +8,16 @@ import eventos.AlterarUsuarioHandler;
 import eventos.ButtonHandlerCancelarCadastroUsuario;
 import eventos.CadastrarUsuarioHandler;
 import eventos.PegaValorCheckBoxButtonHandler;
+
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+
 import negocio.UsuarioLogado;
-import service.relatorios.UtilDatas;
+import service.UtilDatas;
 
 /**
  *
