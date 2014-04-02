@@ -69,29 +69,42 @@ public class ProcurarUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel1.setBounds(0, 0, 1050, 25);
         jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane1.setBounds(170, 300, 700, 200);
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        jLabel3.setBounds(190, 245, 120, 15);
         jTextField1 = new javax.swing.JTextField();
+        jTextField1.setBounds(310, 240, 160, 20);
         jButton1 = new javax.swing.JButton();
+        jButton1.setBounds(490, 237, 130, 30);
         jLabel4 = new javax.swing.JLabel();
+        jLabel4.setBounds(170, 210, 470, 80);
         jLabel5 = new javax.swing.JLabel();
+        jLabel5.setBounds(310, 620, 410, 15);
         jButton2 = new javax.swing.JButton();
+        jButton2.setBounds(260, 510, 130, 30);
         jButton3 = new javax.swing.JButton();
+        jButton3.setBounds(460, 510, 130, 30);
         jButton4 = new javax.swing.JButton();
+        jButton4.setBounds(660, 510, 130, 30);
         jLabel6 = new javax.swing.JLabel();
+        jLabel6.setBounds(654, 170, 160, 15);
         jLabel2 = new javax.swing.JLabel();
+        jLabel2.setBounds(140, 160, 760, 420);
         jLabel7 = new javax.swing.JLabel();
+        jLabel7.setBounds(0, 0, 1050, 680);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("ListarUsuario"); // NOI18N
         setResizable(false);
+        setMinimumSize(new java.awt.Dimension(1024, 700));
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/tarjaGovernoAzul.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1050, 25);
 
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTable1.setForeground(new java.awt.Color(102, 102, 102));
@@ -116,63 +129,51 @@ public class ProcurarUsuario extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(3).setResizable(false);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(170, 300, 700, 200);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nome do Usuário: ");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(190, 245, 120, 15);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(310, 240, 160, 20);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/procurar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/procurar.png"))); // NOI18N
         jButton1.setText("Pesquisar");
         getContentPane().add(jButton1);
-        jButton1.setBounds(490, 237, 130, 30);
 
         jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(102, 102, 102)));
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(170, 210, 470, 80);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Copyright © 2014 Virtua Softwares. Todos os direitos reservados.");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(310, 620, 410, 15);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editar.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/Editar.png"))); // NOI18N
         jButton2.setText("Editar");
         getContentPane().add(jButton2);
-        jButton2.setBounds(260, 510, 130, 30);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cancel_10x10.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/cancel_10x10.png"))); // NOI18N
         jButton3.setText("Excluir");
         getContentPane().add(jButton3);
-        jButton3.setBounds(460, 510, 130, 30);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png"))); // NOI18N
         jButton4.setText("Voltar");
         getContentPane().add(jButton4);
-        jButton4.setBounds(660, 510, 130, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("Bem Vindo, ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(654, 170, 160, 15);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(140, 160, 760, 420);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel7.setAutoscrolls(true);
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel7.setMaximumSize(new java.awt.Dimension(1024, 700));
         jLabel7.setMinimumSize(new java.awt.Dimension(1024, 700));
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 0, 1050, 680);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

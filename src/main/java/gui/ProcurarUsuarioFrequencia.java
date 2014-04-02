@@ -61,8 +61,8 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         initComponents();
         JOptionPane.setRootFrame(this);
         setLocationRelativeTo(null);
-       
-        
+        setMinimumSize(new java.awt.Dimension(1024, 700));
+        setLocationRelativeTo(null);
         PesquisarUsuarioButtonHandlerFrequencia pesquisarUsuarioButtonHandlerFrequencia = new PesquisarUsuarioButtonHandlerFrequencia(this);
         jButton1.addActionListener(pesquisarUsuarioButtonHandlerFrequencia);
         ButtonHandlerVoltarProcurarUsuarioFrequencia buttonHandlerVoltarProcurarUsuarioFrequencia = new ButtonHandlerVoltarProcurarUsuarioFrequencia(this);
@@ -118,7 +118,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/tarjaGovernoAzul.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 1050, 25);
@@ -170,7 +170,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(300, 230, 160, 20);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/procurar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/procurar.png"))); // NOI18N
         jButton1.setText("Pesquisar");
         getContentPane().add(jButton1);
         jButton1.setBounds(490, 228, 130, 25);
@@ -185,7 +185,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(310, 620, 410, 15);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png"))); // NOI18N
         jButton4.setText("Voltar");
         getContentPane().add(jButton4);
         jButton4.setBounds(610, 510, 130, 25);
@@ -198,7 +198,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         getContentPane().add(jTextField2);
         jTextField2.setBounds(280, 512, 90, 20);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/procurar.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/procurar.png"))); // NOI18N
         jButton2.setText(" Buscar Frequência");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +208,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(380, 510, 160, 25);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(140, 160, 760, 420);
 
@@ -218,7 +218,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         getContentPane().add(jLabel8);
         jLabel8.setBounds(430, 110, 150, 17);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel7.setAutoscrolls(true);
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel7.setMaximumSize(new java.awt.Dimension(1024, 700));

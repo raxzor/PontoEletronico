@@ -5,8 +5,6 @@
 package eventos;
 
 import gui.Administrador;
-import gui.NovoUsuario;
-import gui.ProcurarUsuario;
 import gui.ProcurarUsuarioFrequencia;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

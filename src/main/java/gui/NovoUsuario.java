@@ -228,7 +228,7 @@ public class NovoUsuario extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 102, 102));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ok.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/ok.png"))); // NOI18N
         jButton1.setText("Cadastrar");
         getContentPane().add(jButton1);
         jButton1.setBounds(530, 475, 120, 30);
@@ -247,14 +247,14 @@ public class NovoUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(310, 630, 407, 15);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/tarjaGovernoAzul.png"))); // NOI18N
         jLabel11.setText("jLabel11");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(0, 0, 1030, 25);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setForeground(new java.awt.Color(102, 102, 102));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cancel_10x10.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/cancel_10x10.png"))); // NOI18N
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,11 +336,11 @@ public class NovoUsuario extends javax.swing.JFrame {
         jLabel17.setBounds(470, 350, 350, 120);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueCadastro.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueCadastro.jpg"))); // NOI18N
         getContentPane().add(jLabel9);
         jLabel9.setBounds(150, 150, 710, 390);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel7.setAutoscrolls(true);
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel7.setMaximumSize(new java.awt.Dimension(1024, 700));

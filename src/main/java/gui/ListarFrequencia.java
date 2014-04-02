@@ -143,12 +143,12 @@ public class ListarFrequencia extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(190, 190, 670, 280);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/back.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png"))); // NOI18N
         jButton1.setText("Voltar");
         getContentPane().add(jButton1);
         jButton1.setBounds(630, 490, 140, 30);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editar.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/Editar.png"))); // NOI18N
         jButton2.setText("Editar Presença");
         getContentPane().add(jButton2);
         jButton2.setBounds(270, 490, 140, 30);
@@ -159,11 +159,11 @@ public class ListarFrequencia extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(470, 100, 160, 17);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/tarjaGovernoAzul.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 1080, 30);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ok.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/ok.png"))); // NOI18N
         jButton3.setText("Emitir Relatório");
         jButton3.setMaximumSize(new java.awt.Dimension(81, 25));
         jButton3.setMinimumSize(new java.awt.Dimension(81, 25));
@@ -171,11 +171,11 @@ public class ListarFrequencia extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(450, 490, 140, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(140, 140, 770, 420);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMinimumSize(new java.awt.Dimension(1024, 700));
         getContentPane().add(jLabel1);

@@ -20,7 +20,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import negocio.FachadaFrequencia;
 import negocio.OperacaoLog;
-import negocio.UsuarioLogado;
 import service.relatorios.LoginInterface;
 
 /**

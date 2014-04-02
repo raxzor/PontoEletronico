@@ -4,18 +4,14 @@
  */
 package eventos;
 
-import beans.Frequencia;
 import beans.Funcionario;
-import dao.FrequenciaDao;
 import dao.OperacaoLogDao;
 import gui.Administrador;
 import gui.Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -41,8 +37,7 @@ public class ButtonHandlerLogin implements ActionListener {
         String senha = principal.getSenha();
         LoginInterface loginInterface = new LoginInterface();
         Funcionario funcionario = null;
-        Frequencia frequencia = new Frequencia();
-        FrequenciaDao frequenciaDao = new FrequenciaDao();
+       
         try {
             funcionario = loginInterface.logarUsuario(login, senha);
         } catch (SQLException ex) {

@@ -5,8 +5,12 @@
 package gui;
 
 import eventos.GerarRelatorioTodosFuncionariosHandler;
+import eventos.VoltarRelatorioGeralHandler;
+
 import javax.swing.JOptionPane;
+
 import service.relatorios.UtilDatas;
+import javax.swing.JButton;
 
 /**
  *
@@ -30,6 +34,9 @@ public class ImprimirFrequencias extends javax.swing.JFrame {
 //        System.out.println("jTextField1.getText()" + jTextField1.getText());
         GerarRelatorioTodosFuncionariosHandler gerarRelatorioTodosFuncionariosHandler = new GerarRelatorioTodosFuncionariosHandler(this);
         jButton1.addActionListener(gerarRelatorioTodosFuncionariosHandler);
+        VoltarRelatorioGeralHandler voltarRelatorioGeralHandler = new VoltarRelatorioGeralHandler(this);
+        btnVoltar.addActionListener(voltarRelatorioGeralHandler);
+        
     }
 
     /**
@@ -51,6 +58,7 @@ public class ImprimirFrequencias extends javax.swing.JFrame {
         } 
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -62,31 +70,38 @@ public class ImprimirFrequencias extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/tarjaGovernoAzul.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, -2, 1100, 30);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(490, 340, 90, 20);
+        jTextField1.setBounds(466, 340, 90, 20);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Data: ");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(440, 345, 40, 15);
+        jLabel4.setBounds(416, 342, 40, 15);
+        
+//        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.setText("Voltar");
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png")));
+        btnVoltar.setBounds(379, 405, 89, 23);
+        getContentPane().add(btnVoltar);
 
         jButton1.setText("Gerar Relatórios");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/ok.png")));
         getContentPane().add(jButton1);
-        jButton1.setBounds(460, 410, 111, 23);
-
+        jButton1.setBounds(506, 405, 119, 23);
+        
         jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Emissão de Relatórios"));
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(410, 290, 220, 190);
+        jLabel5.setBounds(354, 290, 300, 206);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(130, 160, 770, 430);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMinimumSize(new java.awt.Dimension(1024, 700));
         getContentPane().add(jLabel1);
@@ -131,11 +146,11 @@ public class ImprimirFrequencias extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField1;
-    // End of variables declaration//GEN-END:variables
 }

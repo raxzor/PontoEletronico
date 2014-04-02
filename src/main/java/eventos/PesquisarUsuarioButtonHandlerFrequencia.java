@@ -6,7 +6,6 @@ package eventos;
 
 import beans.Funcionario;
 import dao.FuncionarioDao;
-import gui.ProcurarUsuario;
 import gui.ProcurarUsuarioFrequencia;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

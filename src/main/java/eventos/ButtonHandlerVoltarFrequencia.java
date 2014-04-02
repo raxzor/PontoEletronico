@@ -6,7 +6,6 @@ package eventos;
 
 import gui.Administrador;
 import gui.ListarFrequencia;
-import gui.ProcurarUsuarioFrequencia;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

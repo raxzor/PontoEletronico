@@ -262,7 +262,6 @@ public class RelatorioFrequenciaFuncionario {
             nomeImprimir = frequencia.getFuncionario().getNome();
             portatiaImprimir = frequencia.getFuncionario().getPortaria();
             presencaImprimir = RelatorioFrequenciaFuncionario.getFrequenciaString(frequencia.getPresenca());
-            System.out.println(dataImprimir + " | " + nomeImprimir + " | " + portatiaImprimir + " | " + presencaImprimir);
             UtilFieldsRelatorioFrequencia funcionario = new UtilFieldsRelatorioFrequencia(dataImprimir, nomeImprimir, portatiaImprimir, presencaImprimir);
             funcionarios.add(funcionario);
         }

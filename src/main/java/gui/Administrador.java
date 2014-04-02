@@ -71,31 +71,31 @@ public class Administrador extends javax.swing.JFrame {
         jLabel3.setBounds(300, 630, 420, 15);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PrucrarUsuaio.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/PrucrarUsuaio.png"))); // NOI18N
         jButton2.setText("Procurar Usuário");
         getContentPane().add(jButton2);
         jButton2.setBounds(220, 380, 170, 80);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/1394248144_product-sales-report.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/1394248144_product-sales-report.png"))); // NOI18N
         jButton3.setText("Emitir Frequência");
         getContentPane().add(jButton3);
         jButton3.setBounds(430, 270, 170, 80);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/RemoverUsuario.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/RemoverUsuario.png"))); // NOI18N
         jButton4.setText("Remover Usuário");
         getContentPane().add(jButton4);
         jButton4.setBounds(640, 270, 170, 80);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/editarUsuario.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/editarUsuario.png"))); // NOI18N
         jButton5.setText("Editar Usuário");
         getContentPane().add(jButton5);
         jButton5.setBounds(430, 380, 170, 80);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/EditarFrequencia.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/EditarFrequencia.png"))); // NOI18N
         jButton6.setText("Relatório Geral");
         getContentPane().add(jButton6);
         jButton6.setBounds(640, 380, 170, 80);
@@ -106,12 +106,12 @@ public class Administrador extends javax.swing.JFrame {
         jLabel7.setBounds(0, 0, 0, 750);
 
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/1394247732_Add-Male-User.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/1394247732_Add-Male-User.png"))); // NOI18N
         jButton7.setText("Novo Usuário");
         getContentPane().add(jButton7);
         jButton7.setBounds(220, 270, 170, 80);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tarjaGovernoAzul.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/tarjaGovernoAzul.png"))); // NOI18N
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 1020, 25);
@@ -128,11 +128,11 @@ public class Administrador extends javax.swing.JFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(650, 160, 160, 15);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlueClaro3.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(120, 140, 800, 430);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/backgroundBlue.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(-10, 0, 1060, 750);

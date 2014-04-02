@@ -21,7 +21,6 @@ import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import negocio.OperacaoLog;
-import service.relatorios.UsuarioLogado;
 import service.relatorios.UtilDatas;
 
 /**
