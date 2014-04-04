@@ -143,12 +143,12 @@ public class FrequenciaDao {
         PreparedStatement ps = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
         ps.setInt(1, idFuncionario);
         Calendar c = Calendar.getInstance();
-        c.set(ano, (mes - 1), 01);
+        c.set(ano, (mes - 2), 21);
         Date dataInicial = new Date(c.getTimeInMillis());
         ps.setDate(2, dataInicial);
         UtilFrequencia utilFrequencia = new UtilFrequencia();
-        Integer ultimoDia = utilFrequencia.getMaximoDias(mes, ano);
-        c.set(ano, mes, ultimoDia);
+//        Integer ultimoDia = utilFrequencia.getMaximoDias(mes, ano);
+        c.set(ano, mes, 20);
         Date dataFinal = new Date(c.getTimeInMillis());
         ps.setDate(3, dataFinal);
         Frequencia f;

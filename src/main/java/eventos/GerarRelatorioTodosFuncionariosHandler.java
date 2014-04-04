@@ -65,7 +65,7 @@ public class GerarRelatorioTodosFuncionariosHandler implements ActionListener {
                 for (List<Frequencia> frequencias : list) {
                     String nome = frequencias.get(0).getFuncionario().getNome();
                     try {
-                        RelatorioFrequenciaFuncionario.GeraTodosRelatorio(mes, ano, frequencias, nome);
+                        RelatorioFrequenciaFuncionario.GeraRelatorio(mes, ano, frequencias);
                     } catch (JRException ex) {
                         Logger.getLogger(GerarRelatorioTodosFuncionariosHandler.class.getName()).log(Level.SEVERE, null, ex);
                     }

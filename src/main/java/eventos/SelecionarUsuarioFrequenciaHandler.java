@@ -69,7 +69,7 @@ public class SelecionarUsuarioFrequenciaHandler implements ActionListener {
         UtilFrequencia utilFrequencia = new UtilFrequencia();
         try {
             funcionario = funcionarioDao.getfuncionario(idUsuario);
-            frequencias = frequenciaDao.getFrequenciaFuncionario(mes, ano, idUsuario);
+//            frequencias = frequenciaDao.getFrequenciaFuncionario(mes, ano, idUsuario);
             frequencias = utilFrequencia.getFrequenciaMes(mes, ano, idUsuario);
         } catch (SQLException ex) {
             Logger.getLogger(SelecionarUsuarioFrequenciaHandler.class.getName()).log(Level.SEVERE, null, ex);
