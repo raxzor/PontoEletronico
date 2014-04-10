@@ -5,9 +5,15 @@
 package negocio;
 
 import dao.FrequenciaDao;
+
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.List;
+
+import service.UtilDatas;
+import beans.Frequencia;
 
 /**
  *
@@ -26,5 +32,15 @@ public class FachadaFrequencia {
         }
 //        System.out.println(retorno);
         return retorno;
+    }
+    
+    public boolean verificarFrequenciaTurno(Integer idFuncionario, Date dia) throws SQLException{
+        FrequenciaDao frequenciaDao = new FrequenciaDao();
+        List<String> ultimaFrequencia = frequenciaDao.frequenciasDia(idFuncionario, dia);
+        if(ultimaFrequencia.contains(UtilDatas.getTurno(new Timestamp(Calendar.getInstance().getTimeInMillis())))){
+        	return true;
+        }else{
+        	return false;
+        }
     }
 }

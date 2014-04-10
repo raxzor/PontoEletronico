@@ -5,21 +5,33 @@
 package beans;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
  * @author Gilmar
  */
 public class Frequencia implements Comparable<Date> {
-    
+	
+    private Integer id;
     private Funcionario funcionario;
     private Date data;
     private String turno;
     private Boolean presenca;
     private String justificativa;
+    private Timestamp horaSaida;
     private Integer aux;
 
-    public Integer getAux() {
+    
+    public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getAux() {
         return aux;
     }
 
@@ -27,8 +39,17 @@ public class Frequencia implements Comparable<Date> {
         this.aux = aux;
     }
     
+    
 
-    public Funcionario getFuncionario() {
+    public Timestamp getHoraSaida() {
+		return horaSaida;
+	}
+
+	public void setHoraSaida(Timestamp horaSaida) {
+		this.horaSaida = horaSaida;
+	}
+
+	public Funcionario getFuncionario() {
         return funcionario;
     }
 

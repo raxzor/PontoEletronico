@@ -24,6 +24,7 @@ import javax.swing.JOptionPane;
 import negocio.FachadaFrequencia;
 import negocio.OperacaoLog;
 import service.LoginInterface;
+import service.UtilDatas;
 
 /**
  * 
@@ -48,23 +49,19 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 
 		Calendar corrente = Calendar.getInstance();
 
-		entradaManha.set(corteManha.get(Calendar.YEAR),
-				corteManha.get(Calendar.MONTH),
-				corteManha.get(Calendar.DAY_OF_MONTH), 07, 45, 00);
+		entradaManha.set(corteManha.get(Calendar.YEAR), corteManha.get(Calendar.MONTH), corteManha.get(Calendar.DAY_OF_MONTH), 07, 00, 00);
 		corteManha.set(corteManha.get(Calendar.YEAR),
 				corteManha.get(Calendar.MONTH),
-				corteManha.get(Calendar.DAY_OF_MONTH), 07, 45, 00);
+				corteManha.get(Calendar.DAY_OF_MONTH), 8, 00, 00);
 
 		entradaTarde.set(corteTarde.get(Calendar.YEAR),
 				corteTarde.get(Calendar.MONTH),
-				corteTarde.get(Calendar.DAY_OF_MONTH), 13, 45, 00);
+				corteTarde.get(Calendar.DAY_OF_MONTH), 13, 00, 00);
 		corteTarde.set(corteTarde.get(Calendar.YEAR),
 				corteTarde.get(Calendar.MONTH),
-				corteTarde.get(Calendar.DAY_OF_MONTH), 13, 45, 00);
+				corteTarde.get(Calendar.DAY_OF_MONTH), 14, 00, 00);
 
-		if ((corrente.before(entradaManha) && (corrente.after(corteManha)))
-				|| ((corrente.before(entradaTarde)) && (corrente
-						.after(corteTarde)))) {
+		if ((corrente.after(entradaManha) && (corrente.before(corteManha))) || ((corrente.after(entradaTarde)) && (corrente.before(corteTarde)))) {
 
 			String login = principal.getLogin();
 			String senha = principal.getSenha();
@@ -82,8 +79,7 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 			}
 			try {
 				if (funcionario != null) {
-					Boolean frequenciaDia = fachadaFrequencia
-							.verificarFrequenciaDia(funcionario.getId());
+					Boolean frequenciaDia = fachadaFrequencia.verificarFrequenciaTurno(funcionario.getId(), new Date(Calendar.getInstance().getTimeInMillis()));
 					if (frequenciaDia == false) {
 						respostaUsuario = "Bom dia "
 								+ funcionario.getNome().toString()
@@ -93,6 +89,7 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 						Calendar calendar = Calendar.getInstance();
 						frequencia
 								.setData(new Date(calendar.getTimeInMillis()));
+						frequencia.setTurno(UtilDatas.getTurno(new Timestamp(Calendar.getInstance().getTimeInMillis())));
 						try {
 							frequenciaDao.inserirFrequencia(frequencia);
 
@@ -125,9 +122,10 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 
 			e.getActionCommand();
 			JOptionPane.showMessageDialog(null, respostaUsuario);
-		}
+		}else{
 
 		JOptionPane.showMessageDialog(null, "Atenção, horário indisponível para registro de ponto!");
 	}
+		}
 
 }

@@ -353,17 +353,17 @@ public class UtilFrequencia {
         Integer maxDias = utilFrequencia.getMaximoDias(mes - 1, ano);
         Calendar c = Calendar.getInstance();
         FrequenciaDao frequenciaDao = new FrequenciaDao();
-        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario(mes - 2, ano, idFuncionario);
+        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario(mes - 2, ano, 21, idFuncionario);
         List<String> datas = new ArrayList<String>();
         String retorno = "";
             for(Frequencia frequencia : frequencias){
-            	System.out.println(frequencia.getData());
+//            	System.out.println(frequencia.getData());
                 datas.add(frequencia.getData().toString());
             }
         
         List<Date> feriados = this.getDatasFeriadosOrdinarios20a20(20, null, mes -1, ano);
-        System.out.println(feriados);
-        System.out.println(maxDias);
+//        System.out.println(feriados);
+//        System.out.println(maxDias);
         
         for(int i = 21; i <= maxDias; i++){
             c.set(ano, (mes - 2), i);
@@ -408,14 +408,13 @@ public class UtilFrequencia {
         Integer maxDias = utilFrequencia.getMaximoDias(mes, ano);
         Calendar c = Calendar.getInstance();
         FrequenciaDao frequenciaDao = new FrequenciaDao();
-        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario(mes, ano, idFuncionario);
+        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario(mes, ano, 01, idFuncionario);
         List<String> datas = new ArrayList<String>();
         String retorno = "";
-
             for(Frequencia frequencia : frequencias){
                 datas.add(frequencia.getData().toString());
+                System.out.println(frequencia.getData() + frequencia.getTurno() + frequencia.getPresenca());
             }
-        
         List<Date> feriados = this.getDatasFeriadosOrdinarios20a20(0, 20, mes, ano);
         
         for(int i = 1; i <= 20; i++){

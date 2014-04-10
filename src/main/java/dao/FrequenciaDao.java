@@ -52,13 +52,15 @@ public class FrequenciaDao {
     
     public void atualizarFrequencia(Frequencia frequencia) throws SQLException{
         con = cp.getconection();
-        String sql = "UPDATE frequencia (idFuncionario, data, turno, justificativa, presenca) SET (?, ?, ?, ?, ?)";
+        String sql = "UPDATE frequencia set idFuncionario = ?, data = ?, turno = ?, justificativa = ?, presenca = ?, hora_saida = ? WHERE idfrequencia = ?";
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, 1);
+        ps.setInt(1, frequencia.getFuncionario().getId());
         ps.setDate(2, frequencia.getData());
         ps.setString(3, frequencia.getTurno());
         ps.setString(4, frequencia.getJustificativa());
         ps.setBoolean(5, frequencia.getPresenca());
+        ps.setTimestamp(6, frequencia.getHoraSaida());
+        ps.setInt(7, frequencia.getId());
         ps.executeUpdate();
         ps.close();
         con.close();
@@ -165,6 +167,31 @@ public class FrequenciaDao {
         }
         return frequencia;
     }
+    
+    public List<Frequencia> getFrequenciaFuncionario(Integer mes, Integer ano, Integer dia, Integer idFuncionario) throws SQLException{
+    	List<Frequencia> frequencia = new ArrayList<Frequencia>();
+        con = cp.getconection();
+        String sql = "SELECT * FROM frequencia WHERE idfuncionario = ? and data = ?";
+        PreparedStatement ps = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ps.setInt(1, idFuncionario);
+        Calendar c = Calendar.getInstance();
+        c.set(ano, mes, dia);
+        Date dataInicial = new Date(c.getTimeInMillis());
+        ps.setDate(2, dataInicial);
+        Frequencia f;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            f = new Frequencia();
+            f.setId(rs.getInt("idfrequencia"));
+            f.setData(rs.getDate("data"));
+            f.setPresenca(rs.getBoolean("presenca"));
+            f.setFuncionario(new FuncionarioDao().getfuncionario(rs.getInt("idFuncionario")));
+            f.setHoraSaida(rs.getTimestamp("hora_saida"));
+            f.setTurno(rs.getString("turno"));
+            frequencia.add(f);
+        }
+        return frequencia;
+    }
        
      public Date ultimaFrequenciaRegistrada(Integer idFuncionario) throws SQLException{
          con = cp.getconection();
@@ -177,6 +204,20 @@ public class FrequenciaDao {
             ultimaFrequencia = rs.getDate("max"); 
          }
          return ultimaFrequencia;
+     } 
+     
+     public List<String> frequenciasDia(Integer idFuncionario, Date dia) throws SQLException{
+         con = cp.getconection();
+         String sql = "SELECT turno FROM frequencia WHERE idFuncionario = ? and data = ?";
+         PreparedStatement ps = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+         ps.setInt(1, idFuncionario);
+         ps.setDate(2, dia);
+         ResultSet rs = ps.executeQuery();
+         List<String> turnos = new ArrayList<String>();
+         while(rs.next()){
+            turnos.add(rs.getString("turno"));
+         }
+         return turnos;
      } 
      
      

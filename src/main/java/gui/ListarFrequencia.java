@@ -10,6 +10,7 @@ import eventos.AlterarFrequenciaHandler;
 import eventos.ButtonHandlerVoltarFrequencia;
 import eventos.GerarRelatorioFrequenciaMesFuncionarioHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JTable;
@@ -69,17 +70,21 @@ public class ListarFrequencia extends javax.swing.JFrame {
         
                
         model.addColumn("Data");
-        model.addColumn("Nome Completo");
-        model.addColumn("Portaria");
-        model.addColumn("Presença");
+        model.addColumn("Manhã");
+        model.addColumn("Horário de Saída");
+        model.addColumn("Tarde");
+        model.addColumn("Horário de Saída");
         
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(220);
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+        List<Frequencia> util = new ArrayList<Frequencia>();
         
         for(Frequencia frequencia : frequencias){
-            model.addRow(new Object[]{UtilDatas.DateToString(frequencia.getData()), frequencia.getFuncionario().getNome(), frequencia.getFuncionario().getPortaria(), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencia.getPresenca())});
+            
+        	model.addRow(new Object[]{UtilDatas.DateToString(frequencia.getData()), frequencia.getFuncionario().getNome(), frequencia.getFuncionario().getPortaria(), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencia.getPresenca())});
         }
 //        jTable1 = jTable;
     }
