@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import service.RelatorioFrequenciaFuncionario;
 import service.UtilDatas;
+import service.UtilFrequencia;
 
 /**
  *
@@ -75,16 +76,23 @@ public class ListarFrequencia extends javax.swing.JFrame {
         model.addColumn("Tarde");
         model.addColumn("Horário de Saída");
         
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(80);
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
-        jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(110);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(110);
         List<Frequencia> util = new ArrayList<Frequencia>();
-        
-        for(Frequencia frequencia : frequencias){
-            
-        	model.addRow(new Object[]{UtilDatas.DateToString(frequencia.getData()), frequencia.getFuncionario().getNome(), frequencia.getFuncionario().getPortaria(), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencia.getPresenca())});
+
+    	UtilFrequencia utilFrequencia = new UtilFrequencia();
+        for(int i = 0; i < frequencias.size(); i = i + 2){
+        	Object[] array = null;
+            if(frequencias.get(i).getTurno().equals("M")){
+            	array = new Object[]{UtilDatas.DateToString(frequencias.get(i).getData()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i).getPresenca()) , utilFrequencia.getHorasTimeStamp(frequencias.get(i).getHoraSaida()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i+1).getPresenca()), utilFrequencia.getHorasTimeStamp(frequencias.get(i+1).getHoraSaida())};
+            }else{
+            	array = new Object[]{UtilDatas.DateToString(frequencias.get(i).getData()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i+1).getPresenca()), utilFrequencia.getHorasTimeStamp(frequencias.get(i+1).getHoraSaida()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i).getPresenca()), utilFrequencia.getHorasTimeStamp(frequencias.get(i).getHoraSaida())};
+            }
+        	
+        	model.addRow(array);
         }
 //        jTable1 = jTable;
     }

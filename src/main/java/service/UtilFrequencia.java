@@ -8,8 +8,10 @@ import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
 import dao.FuncionarioDao;
+
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,6 +30,70 @@ import java.util.Map;
 public class UtilFrequencia {
     
     private Integer totalDiasUteis = 0;
+    
+ public List<Date> getDatasDiaSemana(Integer diaInicial, Integer diaFinal, Integer mes, Integer ano, Integer diaSemana) {
+        
+        List<Date> datas = new ArrayList<Date>();
+        Integer diaSemanaComecaMes = this.diasDaSemana(mes, ano, diaInicial);
+        Date data;
+        Calendar c = Calendar.getInstance();
+        if(diaFinal == null){
+        	diaFinal = this.getMaximoDias(mes, ano);
+        }
+        mes --;
+        switch (diaSemanaComecaMes) {
+                case 0: //segunda
+                    for(int i = diaInicial + 6; i <= diaFinal; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        datas.add(data);
+                    }
+                break;
+                case 2:
+                    for(int i = diaInicial + 5; i <= diaFinal; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        datas.add(data);
+                    }
+                    break;
+                case 3:
+                    for(int i = diaInicial + 4; i <= diaFinal; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        datas.add(data);
+                    }
+                    break;
+                case 4:
+                    for(int i = diaInicial + 3; i <= diaFinal; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        datas.add(data);
+                    }
+                    break;
+                case 5:
+                    for(int i = diaInicial + 2; i <= diaFinal; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        datas.add(data);
+                    }
+                    break;
+                case 6:
+                    for(int i = diaInicial + 1; i <= diaFinal; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        datas.add(data);
+                    }
+                    break;
+                case 7:
+                    for(int i = diaInicial; i <= diaFinal; i = i + 7){
+                        c.set(ano, mes, i);
+                        data = new Date(c.getTimeInMillis());
+                        datas.add(data);
+                    }
+                    break;
+            }         
+        return datas;
+    }
 
     public Integer getTotalDiasUteis(Integer mes, Integer ano) {
       Integer x = 0;
@@ -35,6 +101,14 @@ public class UtilFrequencia {
       x = (this.getMaximoDias(mes, ano) - this.getFeriadosOrdinarios(mes, ano));
       
       return x;
+    }
+    
+    public String getHorasTimeStamp(Timestamp timestamp){
+    	String mensagem = "Não registrado";
+    	if(timestamp != null){
+    	mensagem = timestamp.toString().substring(11, 19);
+    	}
+    	return mensagem;
     }
     
     public List<Date> getDatasFeriadosOrdinarios(Integer mes, Integer ano) {
@@ -353,17 +427,45 @@ public class UtilFrequencia {
         Integer maxDias = utilFrequencia.getMaximoDias(mes - 1, ano);
         Calendar c = Calendar.getInstance();
         FrequenciaDao frequenciaDao = new FrequenciaDao();
-        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario(mes - 2, ano, 21, idFuncionario);
+        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario2((mes - 2), ano, 21, maxDias, idFuncionario);
         List<String> datas = new ArrayList<String>();
         String retorno = "";
+        List<Frequencia> list = new ArrayList<Frequencia>();
+        
             for(Frequencia frequencia : frequencias){
-//            	System.out.println(frequencia.getData());
+            	Integer qtde = 0;
                 datas.add(frequencia.getData().toString());
+                for(Frequencia frequencia2 : frequencias){
+                	if(frequencia.getData().toString().equals(frequencia2.getData().toString())){
+                		qtde++;
+                	}
+                }
+                if(qtde == 1){
+                	if(frequencia.getTurno().equals("M")){
+                		Frequencia f = new Frequencia();
+                		f.setData(frequencia.getData());
+                		f.setFuncionario(frequencia.getFuncionario());
+                		f.setHoraSaida(null);
+                		f.setJustificativa(frequencia.getJustificativa());
+                		f.setPresenca(false);
+                		f.setTurno("T");
+                		list.add(f);
+                	}else if(frequencia.getTurno().equals("T")){
+                		Frequencia f = new Frequencia();
+                		f.setData(frequencia.getData());
+                		f.setFuncionario(frequencia.getFuncionario());
+                		f.setHoraSaida(null);
+                		f.setJustificativa(frequencia.getJustificativa());
+                		f.setPresenca(false);
+                		f.setTurno("M");
+                		list.add(f);
+                	}
+                }
             }
+            
+            frequencias.addAll(list);
         
         List<Date> feriados = this.getDatasFeriadosOrdinarios20a20(20, null, mes -1, ano);
-//        System.out.println(feriados);
-//        System.out.println(maxDias);
         
         for(int i = 21; i <= maxDias; i++){
             c.set(ano, (mes - 2), i);
@@ -383,7 +485,38 @@ public class UtilFrequencia {
                     f.setPresenca(null);
                 }
                 }
+
+                f.setTurno("M");
                 frequencias.add(f);
+//                f.setTurno("T");
+//                frequencias.add(f);
+             }
+            
+        }
+        
+        for(int i = 21; i <= maxDias; i++){
+            c.set(ano, (mes - 2), i);
+            d = new Date(c.getTimeInMillis());
+            if(!datas.contains(d.toString())){
+                Frequencia f = new Frequencia();
+                f.setData(d);
+                //AQUI DÁ PROBLEMA QUANDO O FUNCIONÁRIO NAO POSSUI NENHUMA FREQUENCIA
+                if(frequencias.size() <= 0){
+                    f.setFuncionario(new FuncionarioDao().getfuncionario(idFuncionario));
+                }else{
+                f.setFuncionario(frequencias.get(0).getFuncionario());
+                }
+                f.setPresenca(Boolean.FALSE);
+                for(Date dt : feriados){
+                    if(dt.toString().equals(f.getData().toString())){
+                    f.setPresenca(null);
+                }
+                }
+
+                f.setTurno("T");
+                frequencias.add(f);
+//                f.setTurno("T");
+//                frequencias.add(f);
              }
             
         }
@@ -405,25 +538,51 @@ public class UtilFrequencia {
     public List<Frequencia> getFrequenciaMesAtual(Integer mes, Integer ano, Integer idFuncionario) throws SQLException{
         Date d;
         UtilFrequencia utilFrequencia = new UtilFrequencia();
-        Integer maxDias = utilFrequencia.getMaximoDias(mes, ano);
         Calendar c = Calendar.getInstance();
         FrequenciaDao frequenciaDao = new FrequenciaDao();
-        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario(mes, ano, 01, idFuncionario);
+        List<Frequencia> frequencias = frequenciaDao.getFrequenciaFuncionario2((mes -1), ano, 01, 20, idFuncionario);
         List<String> datas = new ArrayList<String>();
         String retorno = "";
+        List<Frequencia> list = new ArrayList<Frequencia>();
             for(Frequencia frequencia : frequencias){
+                Integer qtde = 0; 
                 datas.add(frequencia.getData().toString());
-                System.out.println(frequencia.getData() + frequencia.getTurno() + frequencia.getPresenca());
+                for(Frequencia frequencia2 : frequencias){
+                	if(frequencia.getData().toString().equals(frequencia2.getData().toString())){
+                		qtde++;
+                	}
+                }
+                if(qtde == 1){
+                	if(frequencia.getTurno().equals("M")){
+                		Frequencia f = new Frequencia();
+                		f.setData(frequencia.getData());
+                		f.setFuncionario(frequencia.getFuncionario());
+                		f.setHoraSaida(null);
+                		f.setJustificativa(frequencia.getJustificativa());
+                		f.setPresenca(false);
+                		f.setTurno("T");
+                		list.add(f);
+                	}else if(frequencia.getTurno().equals("T")){
+                		Frequencia f = new Frequencia();
+                		f.setData(frequencia.getData());
+                		f.setFuncionario(frequencia.getFuncionario());
+                		f.setHoraSaida(null);
+                		f.setJustificativa(frequencia.getJustificativa());
+                		f.setPresenca(false);
+                		f.setTurno("M");
+                		list.add(f);
+                	}
+                }
             }
+            
+            frequencias.addAll(list);
         List<Date> feriados = this.getDatasFeriadosOrdinarios20a20(0, 20, mes, ano);
-        
         for(int i = 1; i <= 20; i++){
             c.set(ano, (mes - 1), i);
             d = new Date(c.getTimeInMillis());
             if(!datas.contains(d.toString())){
                 Frequencia f = new Frequencia();
                 f.setData(d);
-                //AQUI DÁ PROBLEMA QUANDO O FUNCIONÁRIO NAO POSSUI NENHUMA FREQUENCIA
                 if(frequencias.size() <= 0){
                     f.setFuncionario(new FuncionarioDao().getfuncionario(idFuncionario));
                 }else{
@@ -435,6 +594,28 @@ public class UtilFrequencia {
                     f.setPresenca(null);
                 }
                 }
+                f.setTurno("M");
+                frequencias.add(f);
+             }
+        }
+        for(int i = 1; i <= 20; i++){
+            c.set(ano, (mes - 1), i);
+            d = new Date(c.getTimeInMillis());
+            if(!datas.contains(d.toString())){
+                Frequencia f = new Frequencia();
+                f.setData(d);
+                if(frequencias.size() <= 0){
+                    f.setFuncionario(new FuncionarioDao().getfuncionario(idFuncionario));
+                }else{
+                f.setFuncionario(frequencias.get(0).getFuncionario());
+                }
+                f.setPresenca(Boolean.FALSE);
+                for(Date dt : feriados){
+                    if(dt.toString().equals(f.getData().toString())){
+                    f.setPresenca(null);
+                }
+                }
+                f.setTurno("T");
                 frequencias.add(f);
              }
             

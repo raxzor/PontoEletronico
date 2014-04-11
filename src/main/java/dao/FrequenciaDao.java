@@ -192,6 +192,34 @@ public class FrequenciaDao {
         }
         return frequencia;
     }
+    
+    public List<Frequencia> getFrequenciaFuncionario2(Integer mes, Integer ano, Integer dia, Integer ultimodia, Integer idFuncionario) throws SQLException{
+    	List<Frequencia> frequencia = new ArrayList<Frequencia>();
+        con = cp.getconection();
+        String sql = "SELECT * FROM frequencia WHERE idfuncionario = ? and data between ? and ?";
+        PreparedStatement ps = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ps.setInt(1, idFuncionario);
+        Calendar c = Calendar.getInstance();
+        c.set(ano, (mes), dia);
+        ps.setDate(2,  new Date(c.getTimeInMillis()));
+        c = Calendar.getInstance();
+        c.set(ano, (mes), ultimodia);
+        ps.setDate(3, new Date(c.getTimeInMillis()));
+        Frequencia f;
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()){
+            f = new Frequencia();
+            f.setId(rs.getInt("idfrequencia"));
+            f.setData(rs.getDate("data"));
+            f.setPresenca(rs.getBoolean("presenca"));
+            f.setFuncionario(new FuncionarioDao().getfuncionario(rs.getInt("idFuncionario")));
+            f.setHoraSaida(rs.getTimestamp("hora_saida"));
+            f.setTurno(rs.getString("turno"));
+            frequencia.add(f);
+        }
+        
+        return frequencia;
+    }
        
      public Date ultimaFrequenciaRegistrada(Integer idFuncionario) throws SQLException{
          con = cp.getconection();

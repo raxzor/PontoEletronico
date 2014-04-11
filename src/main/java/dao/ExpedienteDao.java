@@ -54,6 +54,26 @@ public class ExpedienteDao {
         return expedientes;        
     }
     
+    public List<Expediente> getExpedientes(Integer idFuncionario, Integer mes) throws SQLException{
+        List<Expediente> expedientes = new ArrayList<Expediente>();
+        
+        con = cp.getconection();
+        String sql = "SELECT * FROM expedientes WHERE idFuncionario = ?";
+        PreparedStatement ps = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ps.setInt(1, idFuncionario);
+        
+        ResultSet rs = ps.executeQuery();
+        while(rs.next()){
+            Expediente expediente = new Expediente();
+            expediente.setId(rs.getInt("id"));
+            expediente.setDiaSemana(rs.getInt("DiaSemana"));
+            
+            expedientes.add(expediente);
+        }
+        
+        return expedientes;        
+    }
+    
     public void deletarExpedientes(Integer idFuncionario) throws SQLException{
         con = cp.getconection();
         String sql = "DELETE FROM expedientes WHERE idFuncionario = ?";

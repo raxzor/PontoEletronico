@@ -225,10 +225,43 @@ public class App {
 //			}
 //		}
 		
-		UtilFrequencia utilFrequencia = new UtilFrequencia();
-		List<Frequencia> frequencias = new FrequenciaDao().getFrequenciaFuncionario(05, 2014, 01, 39);
-		for(Frequencia frequencia : frequencias){
-			System.out.println(frequencia.getData() + " | " + frequencia.getPresenca());
-		}
+//		UtilFrequencia utilFrequencia = new UtilFrequencia();
+//		List<Frequencia> frequencias = utilFrequencia.getFrequenciaMes(04, 2014, 39);
+//		for(Frequencia frequencia : frequencias){
+//			System.out.println(frequencia.getData() + " | " + frequencia.getTurno() +" | " + frequencia.getPresenca());
+//		}
+//		
+		
+//		List<String> s = new ArrayList<String>();
+//		String x = "a";
+//		s.add(x);
+//		x = "b";
+//		s.add(x);
+//		x = "c";
+//		s.add(x);
+//		x = "c";
+//		s.add(x);
+//		x = "a";
+//		s.add(x);
+//		System.out.println(s);
+//		
+//		for(String i : s){
+//			int aux = 0;
+//			for(String i2 : s){
+//				if(i.equals(i2)){
+//					aux ++;
+//				}
+//			}
+//			if(aux > 1){
+////				s.add(i);
+//			}
+//		}
+//		System.out.println(s);
+	Timestamp timestamp = new Timestamp(Calendar.getInstance().getTimeInMillis());	
+	System.out.println(timestamp);
+	UtilFrequencia frequencia = new UtilFrequencia();
+	timestamp = null;
+	System.out.println(frequencia.getHorasTimeStamp(timestamp));
 	}
+	
 }
