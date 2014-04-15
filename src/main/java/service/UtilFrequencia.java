@@ -4,6 +4,7 @@
  */
 package service;
 
+import beans.Expediente;
 import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
@@ -421,6 +422,8 @@ public class UtilFrequencia {
     
     
     
+    
+    
     public List<Frequencia> getFrequenciaMesAnterior(Integer mes, Integer ano, Integer idFuncionario) throws SQLException{
         Date d;
         UtilFrequencia utilFrequencia = new UtilFrequencia();
@@ -441,6 +444,7 @@ public class UtilFrequencia {
                 	}
                 }
                 if(qtde == 1){
+                	//Dando NullPointerException Aqui com o usuário lulinha
                 	if(frequencia.getTurno().equals("M")){
                 		Frequencia f = new Frequencia();
                 		f.setData(frequencia.getData());
@@ -460,10 +464,20 @@ public class UtilFrequencia {
                 		f.setTurno("M");
                 		list.add(f);
                 	}
+                	
+                	//freq
+                	
                 }
+                List<Expediente> expedientes = frequencia.getFuncionario().getExpedientes();
+            	if(!expedientes.contains(this.diasDaSemana(frequencia.getData()) -2)){
+            		 frequencia.setPresenca(true);
+            	} 
+                
             }
             
             frequencias.addAll(list);
+            
+           
         
         List<Date> feriados = this.getDatasFeriadosOrdinarios20a20(20, null, mes -1, ano);
         
@@ -520,6 +534,8 @@ public class UtilFrequencia {
              }
             
         }
+        
+        
         
         Collections.sort(frequencias, new Comparator<Frequencia>() {      
     public int compare(Frequencia o1, Frequencia o2) {
@@ -636,10 +652,23 @@ public class UtilFrequencia {
     public List<Frequencia> getFrequenciaMes(Integer mes, Integer ano, Integer idFuncionario) throws SQLException{
         List<Frequencia> mesAnterior = this.getFrequenciaMesAnterior(mes, ano, idFuncionario);
         List<Frequencia> mesAtual = this.getFrequenciaMesAtual(mes, ano, idFuncionario);
+        UtilFrequencia utilFrequencia = new UtilFrequencia();
         
         List<Frequencia> frequencias = new ArrayList<Frequencia>();
         frequencias.addAll(mesAnterior);
         frequencias.addAll(mesAtual);
+        
+        List<Integer> integers = new ArrayList<Integer>();
+        
+        for(Expediente expediente : frequencias.get(0).getFuncionario().getExpedientes()){
+        	integers.add(expediente.getDiaSemana());
+        }
+        
+        for(Frequencia frequencia : frequencias){
+        	if(integers.contains(utilFrequencia.diasDaSemana(frequencia.getData()) - 2)){
+				frequencia.setPresenca(true);
+			}
+        }
                 
         return frequencias;
        
@@ -682,6 +711,12 @@ public class UtilFrequencia {
         gregorianCalendar.setTimeInMillis(calendar.getTimeInMillis());
         diaDaSemana = gregorianCalendar.get(Calendar.DAY_OF_WEEK);
         return diaDaSemana;
+    }
+    
+    public Integer diasDaSemana(Date date){
+    	GregorianCalendar gregorianCalendar = new GregorianCalendar();
+    	gregorianCalendar.setTimeInMillis(date.getTime());
+    	return gregorianCalendar.get(Calendar.DAY_OF_WEEK);
     }
     
     public Double desconto(Integer idFuncionario, Integer mes, Integer ano) throws SQLException{

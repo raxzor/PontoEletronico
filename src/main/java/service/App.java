@@ -1,5 +1,6 @@
 package service;
 
+import beans.Expediente;
 import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
@@ -257,11 +258,71 @@ public class App {
 //			}
 //		}
 //		System.out.println(s);
-	Timestamp timestamp = new Timestamp(Calendar.getInstance().getTimeInMillis());	
-	System.out.println(timestamp);
-	UtilFrequencia frequencia = new UtilFrequencia();
-	timestamp = null;
-	System.out.println(frequencia.getHorasTimeStamp(timestamp));
+//	Timestamp timestamp = new Timestamp(Calendar.getInstance().getTimeInMillis());	
+//	System.out.println(timestamp);
+//	UtilFrequencia frequencia = new UtilFrequencia();
+//	timestamp = null;
+//	System.out.println(frequencia.getHorasTimeStamp(timestamp));
+		
+		
+		FrequenciaDao frequenciaDao = new FrequenciaDao();
+		Date d = frequenciaDao.ListarFrequencia().get(0).getData();
+		UtilFrequencia utilFrequencia = new UtilFrequencia();
+		Calendar c1 = Calendar.getInstance();
+		c1.setTimeInMillis(d.getTime());
+
+		List<Frequencia> frequencias = utilFrequencia.getFrequenciaMesAnterior(04, 2014, 39);
+		List<Expediente> expedientes = frequencias.get(0).getFuncionario().getExpedientes();
+		List<Integer> integers = new ArrayList<Integer>();
+		
+		for(Expediente expediente : expedientes){
+			integers.add(expediente.getDiaSemana());
+		}
+		
+		for(Frequencia frequencia : frequencias){
+			System.out.println(frequencia.getData().toString() + " - " + (utilFrequencia.diasDaSemana(frequencia.getData()) - 2));
+
+			if(!integers.contains(utilFrequencia.diasDaSemana(frequencia.getData()) - 2)){
+				System.out.println((utilFrequencia.diasDaSemana(frequencia.getData()) - 2));
+			}
+		}
+		
+
+//		System.out.println(new Date(c1.getTimeInMillis()));
+//		System.out.println(utilFrequencia.diasDaSemana(c1.get(Calendar.MONTH), c1.get(Calendar.YEAR), c1.get(Calendar.DAY_OF_MONTH)));
+		
+//		System.out.println("****************************************");
+//		Calendar c = Calendar.getInstance();
+//		c.set(2014, 06, 01);
+//		System.out.println(new Date(c1.getTimeInMillis()));
+//		
+//		System.out.println(utilFrequencia.diasDaSemana(new Date(c1.getTimeInMillis())));
+		
+		
+//		for(Expediente expediente : expedientes){
+////			System.out.println(expediente.getDiaSemana());
+//		}
+//		System.out.println("********************");
+//		for(Frequencia frequencia : frequencias){
+//			List<Expediente> expedientes = frequencia.getFuncionario().getExpedientes();
+//			for(Expediente expediente : expedientes){
+//				System.out.println(expediente.getDiaSemana() + " " + (utilFrequencia.diasDaSemana(frequencia.getData()) -2));
+//				System.out.println(expediente.getDiaSemana() == (utilFrequencia.diasDaSemana(frequencia.getData()) -2));
+//	        	if((expediente.getDiaSemana() != (utilFrequencia.diasDaSemana(frequencia.getData()) -2))){
+//	        		 frequencia.setPresenca(true);
+////	     			System.out.println(frequencia.getData() + " - " + frequencia.getTurno() + " - " + frequencia.getPresenca());
+//
+////	        		 System.out.println(frequencia.getData());
+//	        	} 
+//			}
+//			System.out.println("************");
+			
+//			System.out.println(frequencia.getData());
+//			System.out.println(utilFrequencia.diasDaSemana(frequencia.getData()) -2);
+//			System.out.println(frequencia.getData() + " - " + frequencia.getTurno() + " - " + frequencia.getPresenca());
+			
+			
+//		}
 	}
 	
 }

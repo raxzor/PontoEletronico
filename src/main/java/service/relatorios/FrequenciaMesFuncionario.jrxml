@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cb007ec9-dc49-4b56-ba3b-9eb0deef0d48">
-	<property name="ireport.zoom" value="2.0"/>
-	<property name="ireport.x" value="240"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="1.2418426461183105"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="145"/>
 	<parameter name="titulo_pagina" class="java.lang.String"/>
 	<parameter name="dias_uteis" class="java.lang.String"/>
 	<parameter name="dias_trabalhados" class="java.lang.String"/>
@@ -15,10 +15,12 @@
 	<parameter name="percentual_desconto_inss" class="java.lang.String"/>
 	<parameter name="percentual_desconto_ir" class="java.lang.String"/>
 	<parameter name="administrador" class="java.lang.String"/>
+	<parameter name="nome_funcionario" class="java.lang.String"/>
 	<field name="DATA" class="java.lang.String"/>
-	<field name="NOME" class="java.lang.String"/>
-	<field name="PORTARIA" class="java.lang.String"/>
-	<field name="PRESENCA" class="java.lang.String"/>
+	<field name="PRESENCA_M" class="java.lang.String"/>
+	<field name="HORA_SAIDA_M" class="java.lang.String"/>
+	<field name="PRESENCA_T" class="java.lang.String"/>
+	<field name="HORA_SAIDA_T" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -38,21 +40,33 @@
 		</band>
 	</title>
 	<pageHeader>
-		<band height="49" splitType="Stretch">
+		<band height="69" splitType="Stretch">
 			<textField>
 				<reportElement uuid="2cd73ca9-098e-456b-b936-7936eb868287" x="0" y="15" width="555" height="20"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$P{titulo_pagina}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement uuid="39a36762-2cf0-46f3-9b85-2ca9fd77de00" x="0" y="47" width="555" height="1"/>
+				<reportElement uuid="39a36762-2cf0-46f3-9b85-2ca9fd77de00" x="0" y="67" width="555" height="1"/>
 			</line>
+			<textField>
+				<reportElement uuid="5efdad83-25ad-4ef8-8834-283835ddf4e0" x="48" y="35" width="507" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{nome_funcionario}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="54bc0982-17f4-476e-9d4d-0c718e0bb156" x="2" y="35" width="46" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Servidor:]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="28" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="a4f4f106-3f69-48bf-a314-5b9f2c64f14f" x="2" y="2" width="100" height="16"/>
+				<reportElement uuid="a4f4f106-3f69-48bf-a314-5b9f2c64f14f" x="2" y="2" width="77" height="16"/>
 				<textElement/>
 				<text><![CDATA[DATA]]></text>
 			</staticText>
@@ -60,51 +74,63 @@
 				<reportElement uuid="e536bef4-909c-4d92-8e18-3e40266443de" x="0" y="19" width="555" height="1"/>
 			</line>
 			<staticText>
-				<reportElement uuid="72e68399-fcf5-45ff-b490-67d93546f6e5" x="111" y="2" width="229" height="16"/>
+				<reportElement uuid="979ab36e-fa90-4da9-aa70-2e7379e994a1" x="92" y="1" width="88" height="20"/>
 				<textElement/>
-				<text><![CDATA[NOME]]></text>
+				<text><![CDATA[MANHÃ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="970e79ae-9774-49cd-ac18-57d05fd956d2" x="348" y="2" width="100" height="16"/>
+				<reportElement uuid="990bbbbd-6e84-4160-b87c-5c3efd878225" x="190" y="1" width="100" height="20"/>
 				<textElement/>
-				<text><![CDATA[PORTARIA]]></text>
+				<text><![CDATA[HORÁRIO DE SAÍDA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="92301612-ac80-40ec-b4b0-f2188b16d044" x="455" y="2" width="100" height="16"/>
+				<reportElement uuid="0dd550e9-8961-45a7-a667-0c73d79976f2" x="348" y="1" width="80" height="20"/>
 				<textElement/>
-				<text><![CDATA[PRESENCA]]></text>
+				<text><![CDATA[TARDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0771b8ef-dd2c-4e8f-b44f-60e296234be4" x="446" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[HORÁRIO DE SAÍDA]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="13" splitType="Stretch">
 			<textField>
-				<reportElement uuid="7a4aa5ad-29d5-4f57-8015-7e1478b725d0" x="2" y="0" width="100" height="13"/>
+				<reportElement uuid="7a4aa5ad-29d5-4f57-8015-7e1478b725d0" x="2" y="0" width="77" height="13"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{DATA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="ac36316f-6a74-45c8-ba4b-f2ee608b5b24" x="111" y="0" width="229" height="13"/>
+				<reportElement uuid="342046a0-3df1-4c8c-917e-abf56b70251a" x="92" y="0" width="88" height="13"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{NOME}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{PRESENCA_M}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="abb96f02-5251-41d9-8553-e0d5ed29da68" x="348" y="0" width="100" height="13"/>
-				<textElement>
+				<reportElement uuid="a2bb7a63-cf1a-4409-9a7d-42ea62705ba3" x="190" y="0" width="100" height="13"/>
+				<textElement textAlignment="Center">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{PORTARIA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{HORA_SAIDA_M}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="bb5ee3f4-3300-4156-8b16-55a8786be1ed" x="455" y="0" width="100" height="13"/>
+				<reportElement uuid="98316cb7-5a81-452d-80f9-8d008f6f87c8" x="348" y="0" width="80" height="13"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{PRESENCA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{PRESENCA_T}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f1ce2028-45bc-4529-a7b4-9d36a41f60d3" x="446" y="0" width="100" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HORA_SAIDA_T}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

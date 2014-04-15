@@ -12,6 +12,7 @@ import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -59,14 +60,17 @@ public class RelatorioFrequenciaFuncionario {
 	public static List<UtilFieldsRelatorioFrequencia> getFields(List<Frequencia> frequencias){
 		List<UtilFieldsRelatorioFrequencia> funcionarios = new ArrayList<UtilFieldsRelatorioFrequencia>();
 
-		for (Frequencia frequencia : frequencias) {			
-			UtilFieldsRelatorioFrequencia funcionario = new UtilFieldsRelatorioFrequencia(
-					UtilDatas.DateToString(frequencia.getData()), frequencia.getFuncionario().getNome(), 
-					frequencia.getFuncionario().getPortaria(),
-					RelatorioFrequenciaFuncionario.getFrequenciaString(frequencia.getPresenca()));
+		UtilFrequencia utilFrequencia = new UtilFrequencia();
+        for(int i = 0; i < frequencias.size(); i = i + 2){
+        	UtilFieldsRelatorioFrequencia funcionario = null;
+            if(frequencias.get(i).getTurno().equals("M")){
+            	funcionario = new UtilFieldsRelatorioFrequencia(UtilDatas.DateToString(frequencias.get(i).getData()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i).getPresenca()) , utilFrequencia.getHorasTimeStamp(frequencias.get(i).getHoraSaida()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i+1).getPresenca()), utilFrequencia.getHorasTimeStamp(frequencias.get(i+1).getHoraSaida()));
+            }else{
+            	funcionario = new UtilFieldsRelatorioFrequencia(UtilDatas.DateToString(frequencias.get(i).getData()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i+1).getPresenca()), utilFrequencia.getHorasTimeStamp(frequencias.get(i+1).getHoraSaida()), RelatorioFrequenciaFuncionario.getFrequenciaString(frequencias.get(i).getPresenca()), utilFrequencia.getHorasTimeStamp(frequencias.get(i).getHoraSaida()));
+            }
+
 			funcionarios.add(funcionario);
-		}
-		
+        }
 		return funcionarios;
 	}
 
@@ -126,10 +130,64 @@ public class RelatorioFrequenciaFuncionario {
 		return d;
 	}
 	
-	
+	public static String mesString(Integer indiceMes){
+		String mes = new String();
+		switch(indiceMes){
+		case 1 :{
+			mes = "Janeiro"; 
+			break;
+		}
+		case 2 :{
+			mes = "Fevereiro"; 
+			break;
+		}
+		case 3 :{
+			mes = "Março"; 
+			break;
+		}
+		case 4 :{
+			mes = "Abril"; 
+			break;
+		}
+		case 5 :{
+			mes = "Maio"; 
+			break;
+		}
+		case 6 :{
+			mes = "Junho"; 
+			break;
+		}
+		case 7 :{
+			mes = "Julho"; 
+			break;
+		}
+		case 8 :{
+			mes = "Agosto"; 
+			break;
+		}
+		case 9 :{
+			mes = "Setembro"; 
+			break;
+		}
+		case 10 :{
+			mes = "Outubro"; 
+			break;
+		}
+		case 11 :{
+			mes = "Novembro"; 
+			break;
+		}
+		case 12 :{
+			mes = "Dezembro"; 
+			break;
+		}
+		}
+		
+		return mes;
+	}
 	
 	public static Map<String, Object> getParametros(Integer mes, Integer ano, List<Frequencia> frequencias){
-		String titulo_pagina = "Relatório de Presença - " + mes + "/" + ano;
+		String titulo_pagina = "Relatório de Presença - " + (RelatorioFrequenciaFuncionario.mesString(mes +1)) + " de " + ano;
 		negocio.UsuarioLogado usuarioLogado = negocio.UsuarioLogado.getInstancia();
 		Funcionario usuario = usuarioLogado.getUsuarioLogado();
 		
@@ -157,15 +215,32 @@ public class RelatorioFrequenciaFuncionario {
 			 percentual_desconto_ir = "0%";
 		}
 		
-		UtilParametrosRelatorioFrequencia utilRelatorioFrequenciaMesFuncionario = new UtilParametrosRelatorioFrequencia(
-				dias_uteis.toString(), dias_trabalhados.toString(),	total_faltas.toString(), 
-				RelatorioFrequenciaFuncionario.moedaFormat(salario_bruto),
-				RelatorioFrequenciaFuncionario.moedaFormat(desconto_por_faltas), percentual_desconto_inss,
-				percentual_desconto_ir, RelatorioFrequenciaFuncionario.moedaFormat(desconto_inss),
-				RelatorioFrequenciaFuncionario.moedaFormat(desconto_ir), RelatorioFrequenciaFuncionario.moedaFormat(salario_liquido),
-				titulo_pagina, usuario.getNome());
+//		UtilParametrosRelatorioFrequencia utilRelatorioFrequenciaMesFuncionario = new UtilParametrosRelatorioFrequencia(
+//				dias_uteis.toString(), dias_trabalhados.toString(),	total_faltas.toString(), 
+//				RelatorioFrequenciaFuncionario.moedaFormat(salario_bruto),
+//				RelatorioFrequenciaFuncionario.moedaFormat(desconto_por_faltas), percentual_desconto_inss,
+//				percentual_desconto_ir, RelatorioFrequenciaFuncionario.moedaFormat(desconto_inss),
+//				RelatorioFrequenciaFuncionario.moedaFormat(desconto_ir), RelatorioFrequenciaFuncionario.moedaFormat(salario_liquido),
+//				titulo_pagina, usuario.getNome());
 		
-		return utilRelatorioFrequenciaMesFuncionario.getparametros();
+//		return utilRelatorioFrequenciaMesFuncionario.getparametros();
+		
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("titulo_pagina", titulo_pagina);
+		parametros.put("nome_funcionario", frequencias.get(0).getFuncionario().getNome().toUpperCase());
+		parametros.put("dias_uteis", dias_uteis.toString());
+		parametros.put("dias_trabalhados", dias_trabalhados.toString());
+		parametros.put("total_faltas", total_faltas.toString());
+		parametros.put("salario_bruto", RelatorioFrequenciaFuncionario.moedaFormat(salario_bruto));
+		parametros.put("desconto_por_faltas", RelatorioFrequenciaFuncionario.moedaFormat(desconto_por_faltas));
+		parametros.put("percentual_desconto_inss", percentual_desconto_inss.toString());
+		parametros.put("desconto_inss", RelatorioFrequenciaFuncionario.moedaFormat(desconto_inss));
+		parametros.put("percentual_desconto_ir", percentual_desconto_ir.toString());
+		parametros.put("desconto_ir", RelatorioFrequenciaFuncionario.moedaFormat(desconto_ir));
+		parametros.put("salario_liquido", RelatorioFrequenciaFuncionario.moedaFormat(salario_liquido));
+		parametros.put("administrador", usuario.getNome());
+		
+		return parametros;
 	}
 	
 	public static void GeraRelatorio(Integer mes, Integer ano, List<Frequencia> frequencias) throws JRException, SQLException {

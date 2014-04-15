@@ -14,48 +14,83 @@ import java.util.Map;
 public class UtilFieldsRelatorioFrequencia {
     
     private String DATA;
-    private String NOME;
-    private String PORTARIA;
-    private String PRESENCA;
+    private String PRESENCA_M;
+    private String HORA_SAIDA_M;
+    private String PRESENCA_T;
+    private String HORA_SAIDA_T;
    
-    public UtilFieldsRelatorioFrequencia(String DATA, String NOME, String PORTARIA, String PRESENCA) {
-        this.DATA = DATA;
-        this.NOME = NOME;
-        this.PORTARIA = PORTARIA;
-        this.PRESENCA = PRESENCA;
-    }
+    
 
-    public String getDATA() {
-        return DATA;
-    }
+    public UtilFieldsRelatorioFrequencia(String dATA, String pRESENCA_M, String hORA_SAIDA_M, String pRESENCA_T, String hORA_SAIDA_T) {
+		super();
+		DATA = dATA;
+		PRESENCA_M = pRESENCA_M;
+		HORA_SAIDA_M = hORA_SAIDA_M;
+		PRESENCA_T = pRESENCA_T;
+		HORA_SAIDA_T = hORA_SAIDA_T;
+	}
 
-    public void setDATA(String DATA) {
-        this.DATA = DATA;
-    }
 
-    public String getNOME() {
-        return NOME;
-    }
 
-    public void setNOME(String NOME) {
-        this.NOME = NOME;
-    }
+	public String getDATA() {
+		return DATA;
+	}
 
-    public String getPORTARIA() {
-        return PORTARIA;
-    }
 
-    public void setPORTARIA(String PORTARIA) {
-        this.PORTARIA = PORTARIA;
-    }
 
-    public String getPRESENCA() {
-        return PRESENCA;
-    }
+	public void setDATA(String dATA) {
+		DATA = dATA;
+	}
 
-    public void setPRESENCA(String PRESENCA) {
-        this.PRESENCA = PRESENCA;
-    }
+
+
+	public String getPRESENCA_M() {
+		return PRESENCA_M;
+	}
+
+
+
+	public void setPRESENCA_M(String pRESENCA_M) {
+		PRESENCA_M = pRESENCA_M;
+	}
+
+
+
+	public String getHORA_SAIDA_M() {
+		return HORA_SAIDA_M;
+	}
+
+
+
+	public void setHORA_SAIDA_M(String hORA_SAIDA_M) {
+		HORA_SAIDA_M = hORA_SAIDA_M;
+	}
+
+
+
+	public String getPRESENCA_T() {
+		return PRESENCA_T;
+	}
+
+
+
+	public void setPRESENCA_T(String pRESENCA_T) {
+		PRESENCA_T = pRESENCA_T;
+	}
+
+
+
+	public String getHORA_SAIDA_T() {
+		return HORA_SAIDA_T;
+	}
+
+
+
+	public void setHORA_SAIDA_T(String hORA_SAIDA_T) {
+		HORA_SAIDA_T = hORA_SAIDA_T;
+	}
+
+	
     
     
 }
