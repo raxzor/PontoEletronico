@@ -265,27 +265,27 @@ public class App {
 //	System.out.println(frequencia.getHorasTimeStamp(timestamp));
 		
 		
-		FrequenciaDao frequenciaDao = new FrequenciaDao();
-		Date d = frequenciaDao.ListarFrequencia().get(0).getData();
-		UtilFrequencia utilFrequencia = new UtilFrequencia();
-		Calendar c1 = Calendar.getInstance();
-		c1.setTimeInMillis(d.getTime());
-
-		List<Frequencia> frequencias = utilFrequencia.getFrequenciaMesAnterior(04, 2014, 39);
-		List<Expediente> expedientes = frequencias.get(0).getFuncionario().getExpedientes();
-		List<Integer> integers = new ArrayList<Integer>();
-		
-		for(Expediente expediente : expedientes){
-			integers.add(expediente.getDiaSemana());
-		}
-		
-		for(Frequencia frequencia : frequencias){
-			System.out.println(frequencia.getData().toString() + " - " + (utilFrequencia.diasDaSemana(frequencia.getData()) - 2));
-
-			if(!integers.contains(utilFrequencia.diasDaSemana(frequencia.getData()) - 2)){
-				System.out.println((utilFrequencia.diasDaSemana(frequencia.getData()) - 2));
-			}
-		}
+//		FrequenciaDao frequenciaDao = new FrequenciaDao();
+//		Date d = frequenciaDao.ListarFrequencia().get(0).getData();
+//		UtilFrequencia utilFrequencia = new UtilFrequencia();
+//		Calendar c1 = Calendar.getInstance();
+//		c1.setTimeInMillis(d.getTime());
+//
+//		List<Frequencia> frequencias = utilFrequencia.getFrequenciaMesAnterior(04, 2014, 39);
+//		List<Expediente> expedientes = frequencias.get(0).getFuncionario().getExpedientes();
+//		List<Integer> integers = new ArrayList<Integer>();
+//		
+//		for(Expediente expediente : expedientes){
+//			integers.add(expediente.getDiaSemana());
+//		}
+//		
+//		for(Frequencia frequencia : frequencias){
+//			System.out.println(frequencia.getData().toString() + " - " + (utilFrequencia.diasDaSemana(frequencia.getData()) - 2));
+//
+//			if(!integers.contains(utilFrequencia.diasDaSemana(frequencia.getData()) - 2)){
+//				System.out.println((utilFrequencia.diasDaSemana(frequencia.getData()) - 2));
+//			}
+//		}
 		
 
 //		System.out.println(new Date(c1.getTimeInMillis()));
@@ -323,6 +323,9 @@ public class App {
 			
 			
 //		}
+
+		File dir = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/" + "Relatorio" + (RelatorioFrequenciaFuncionario.mesString(02 +1)) + " de " + 2014); 
+		dir.mkdirs();
 	}
 	
 }

@@ -7,8 +7,11 @@ package gui;
 import eventos.ButtonHandlerNovoUsuario;
 import eventos.ProcurarUsuarioFrequenciaHandler;
 import eventos.ProcurarUsuarioHandler;
+import eventos.SairPrincipalHandler;
 import eventos.TelaGerarRelatoriosHandler;
 import negocio.UsuarioLogado;
+
+import javax.swing.JButton;
 
 /**
  *
@@ -33,6 +36,9 @@ public class Administrador extends javax.swing.JFrame {
         jButton3.addActionListener(procurarUsuarioFrequenciaHandler);
         TelaGerarRelatoriosHandler gerarRelatoriosHandler = new TelaGerarRelatoriosHandler(this);
         jButton6.addActionListener(gerarRelatoriosHandler);
+        SairPrincipalHandler sairPrincipalHandler = new SairPrincipalHandler(this);
+        btnNewButton.addActionListener(sairPrincipalHandler);
+        
      }
 
     /**
@@ -57,6 +63,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnNewButton =  new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1024, 700));
@@ -93,6 +100,10 @@ public class Administrador extends javax.swing.JFrame {
         jButton5.setText("Editar Usuário");
         getContentPane().add(jButton5);
         jButton5.setBounds(430, 380, 170, 80);
+        
+        btnNewButton = new JButton("Sair");
+        btnNewButton.setBounds(806, 154, 51, 20);
+        getContentPane().add(btnNewButton);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/EditarFrequencia.png"))); // NOI18N
@@ -188,5 +199,5 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    // End of variables declaration//GEN-END:variables
+    private javax.swing.JButton btnNewButton;
 }

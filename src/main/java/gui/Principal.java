@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -57,6 +58,7 @@ public class Principal extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton3.setIcon(new ImageIcon(Principal.class.getResource("/gui/images/login.png")));
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -65,6 +67,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+        jButton2.setIcon(new ImageIcon(Principal.class.getResource("/gui/images/1397708340_radio-button_on.png")));
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -81,40 +84,40 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton3.setText("Login");
+        jButton3.setText("Administrador");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(757, 511, 67, 30);
+        jButton3.setBounds(436, 519, 216, 30);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(397, 380, 302, 30);
+        jTextField1.setBounds(436, 347, 216, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuário");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(397, 353, 48, 16);
+        jLabel2.setBounds(436, 329, 48, 16);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Senha");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(397, 418, 40, 16);
+        jLabel3.setBounds(436, 389, 40, 16);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Controle de Acesso");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(480, 180, 120, 20);
+        jLabel5.setBounds(475, 174, 120, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("SisPD");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(510, 160, 51, 22);
+        jLabel6.setBounds(508, 152, 51, 22);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -122,36 +125,37 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(340, 630, 410, 20);
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(397, 449, 302, 30);
+        jPasswordField1.setBounds(436, 408, 216, 30);
         
-        btnNewButton = new JButton("Registrar Saída");
+        btnNewButton = new JButton("Saída");
+        btnNewButton.setIcon(new ImageIcon(Principal.class.getResource("/gui/images/1397708174_exit.png")));
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-        btnNewButton.setBounds(568, 511, 131, 30);
+        btnNewButton.setBounds(552, 462, 97, 30);
         getContentPane().add(btnNewButton);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton2.setText("Registrar Entrada");
+        jButton2.setText("Entrada");
         jButton2.setActionCommand("jButton3");
         getContentPane().add(jButton2);
-        jButton2.setBounds(397, 511, 147, 30);
+        jButton2.setBounds(435, 462, 97, 30);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/1394264445_Login.png"))); // NOI18N
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(520, 280, 48, 60);
+        jLabel7.setBounds(527, 244, 48, 60);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/brasão_tamanho_pequeno.png"))); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(480, 50, 131, 102);
+        jLabel8.setBounds(480, 39, 131, 102);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/lightblue.jpg"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(353, 260, 376, 310);
+        jLabel1.setBounds(379, 228, 323, 353);
         jLabel4 = new javax.swing.JLabel();
         
                 jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
                 getContentPane().add(jLabel4);
-                jLabel4.setBounds(0, 0, 1040, 680);
+                jLabel4.setBounds(0, 0, 1050, 691);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

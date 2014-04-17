@@ -65,8 +65,7 @@ public class CadastrarUsuarioHandler implements ActionListener {
             System.out.println(e1.getDiaSemana());
             
         if ((novoUsuario.getNome().equals("")) || (senhaInvalida)
-                || (novoUsuario.getlogin().equals("")) || (novoUsuario.getPortaria().equals(""))
-                || (novoUsuario.getSalario().equals("")) || (senha.equals(""))) {
+                || (novoUsuario.getlogin().equals("")) || (novoUsuario.getSalario().equals("")) || (senha.equals(""))) {
             JOptionPane.showMessageDialog(null, "TODOS OS CAMPOS SÃO OBRIGATÓRIOS!");
 
         }else if(expedientes.size() < 1){
@@ -109,7 +108,7 @@ public class CadastrarUsuarioHandler implements ActionListener {
                 Administrador.main(null);
             } catch (SQLException ex) {
                 ex.printStackTrace();
-//                JOptionPane.showMessageDialog(null, "Atenção, já existe um usuário associado ao login " + funcionario.getLogin().toUpperCase() + " !");
+                JOptionPane.showMessageDialog(null, "Atenção, já existe um usuário associado ao login " + funcionario.getLogin().toUpperCase() + " !");
             }
 
         }

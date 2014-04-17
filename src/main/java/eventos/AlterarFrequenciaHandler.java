@@ -55,6 +55,7 @@ public class AlterarFrequenciaHandler implements ActionListener {
                     frequenciaDao.inserirFrequencia(frequencia);
                 } catch (SQLException ex) {
                     Logger.getLogger(AlterarFrequenciaHandler.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Falha ao Alterar Frequência. \n \n Verifique os dados informados e tente novamente.");
                 }
             }
         }
@@ -78,6 +79,7 @@ public class AlterarFrequenciaHandler implements ActionListener {
             frequencias = utilFrequencia.getFrequenciaMes(mes, ano, funcionario.getId());
         } catch (SQLException ex) {
             Logger.getLogger(SelecionarUsuarioFrequenciaHandler.class.getName()).log(Level.SEVERE, null, ex);
+//            JOptionPane.showMessageDialog(null, "Ocorreu uma falha inesperada!");
         }
 
         listarFrequencia.dispose();

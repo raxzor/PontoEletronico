@@ -41,15 +41,49 @@ public class AlterarUsuarioHandler implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        Funcionario funcionario = new Funcionario();
+    	
+    	 boolean senhaInvalida = false;
+         String senha = new String();
+         for (char c : novoUsuario.getsenha()) {
+             senha = senha + c;
+         }
+         try {
+             UtilDatas.FormatoData(novoUsuario.getDataAdmissao());
+         } catch (NumberFormatException ev) {
+             senhaInvalida = true;
+         }
+         List <Expediente> expedientes = new ArrayList<Expediente>();
+             JCheckBox[] jcheckboxes = new JCheckBox[5];
+             jcheckboxes = novoUsuario.getJcheckboxes();
+             for (int i = 0; i < jcheckboxes.length; i ++) {
+                 Expediente expediente = new Expediente();
+                 if(jcheckboxes[i].isSelected()){
+                 expediente.setDiaSemana(i);
+                 expedientes.add(expediente);
+                 }
+             }
+         
+             for(Expediente e1 : expedientes)
+             System.out.println(e1.getDiaSemana());
+             
+         if ((novoUsuario.getNome().equals("")) || (senhaInvalida)
+                 || (novoUsuario.getlogin().equals("")) || (novoUsuario.getSalario().equals(""))) {
+             JOptionPane.showMessageDialog(null, "TODOS OS CAMPOS SÃO OBRIGATÓRIOS!");
+
+         }else if(expedientes.size() < 1){
+             JOptionPane.showMessageDialog(null, "Atenção, ao menos 1 (um) expediente deve ser selecionado!");
+         }else {
+        
+        
+    	Funcionario funcionario = new Funcionario();
         funcionario.setNome(novoUsuario.getNome());
         funcionario.setDataAdmissao(UtilDatas.FormatoData(novoUsuario.getDataAdmissao()));
         funcionario.setLogin(novoUsuario.getlogin());
         funcionario.setPortaria(novoUsuario.getPortaria());
         funcionario.setSalario(novoUsuario.getSalario());
         funcionario.setNivelAcesso(novoUsuario.getNivelAcesso());
-        List <Expediente> expedientes = new ArrayList<Expediente>();
-            JCheckBox[] jcheckboxes = new JCheckBox[5];
+//        List <Expediente> expedientes = new ArrayList<Expediente>();
+//            JCheckBox[] jcheckboxes = new JCheckBox[5];
             jcheckboxes = novoUsuario.getJcheckboxes();
             for (int i = 0; i < jcheckboxes.length; i ++) {
                 Expediente expediente = new Expediente();
@@ -69,7 +103,7 @@ public class AlterarUsuarioHandler implements ActionListener {
                 Logger.getLogger(AlterarUsuarioHandler.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            String senha = new String();
+            senha = new String();
             for (char c : novoUsuario.getsenha()) {
                 senha = senha + c;
             }
@@ -99,9 +133,10 @@ public class AlterarUsuarioHandler implements ActionListener {
             Administrador.main(null);
         } catch (SQLException ex) {
             ex.printStackTrace();
-//            JOptionPane.showMessageDialog(null, "Atenção, já existe um usuário associado ao login " + funcionario.getLogin().toUpperCase() + " !");
+            JOptionPane.showMessageDialog(null, "Atenção, já existe um usuário associado ao login " + funcionario.getLogin().toUpperCase() + " !");
         }
 
 
     }
+	}
 }

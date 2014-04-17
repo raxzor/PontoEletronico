@@ -40,7 +40,7 @@ public class GerarRelatorioFrequenciaMesFuncionarioHandler implements ActionList
         try {
             RelatorioFrequenciaFuncionario.GeraRelatorio(mes, ano, frequencias);
             JOptionPane.showMessageDialog(null, "Relatório Gerado com Sucesso!!! \n \n Localização: " + RelatorioFrequenciaFuncionario.localizacaopdf + frequencias.get(0).getFuncionario().getNome() + ".pdf");
-            File pdf = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/" + frequencias.get(0).getFuncionario().getNome() + ".pdf");  
+            File pdf = new File(RelatorioFrequenciaFuncionario.localizacaopdf + frequencias.get(0).getFuncionario().getNome() + ".pdf");  
         	try {  
         	  Desktop.getDesktop().open(pdf);  
         	} catch(Exception ex) {  

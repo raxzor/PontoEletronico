@@ -8,6 +8,7 @@ import beans.Frequencia;
 import beans.Funcionario;
 import dao.FrequenciaDao;
 
+import java.io.File;
 import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.text.NumberFormat;
@@ -251,6 +252,9 @@ public class RelatorioFrequenciaFuncionario {
 		JasperReport report = JasperCompileManager.compileReport(localizacaojrxml);
 		JasperPrint print = JasperFillManager.fillReport(report, parametros, new JRBeanCollectionDataSource(funcionarios));
 		String nomePDF = frequencias.get(0).getFuncionario().getNome();
+		localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Documents/" + "Relatorio_" + (RelatorioFrequenciaFuncionario.mesString(mes +1)) + "_de_" + ano + "/";
+		File dir = new File(localizacaopdf);  
+		dir.mkdirs();
 		JasperExportManager.exportReportToPdfFile(print, localizacaopdf	+ nomePDF + ".pdf");
 	}
 
