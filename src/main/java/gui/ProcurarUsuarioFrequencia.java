@@ -10,6 +10,7 @@ import eventos.PesquisarUsuarioButtonHandlerFrequencia;
 import eventos.SelecionarUsuarioFrequenciaHandler;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import java.awt.Font;
 
 /**
  *
@@ -160,24 +161,24 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(170, 290, 700, 200);
+        jScrollPane1.setBounds(170, 274, 664, 200);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nome do Usuário: ");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 235, 120, 15);
+        jLabel3.setBounds(180, 219, 120, 15);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(300, 230, 160, 20);
+        jTextField1.setBounds(300, 214, 160, 27);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/procurar.png"))); // NOI18N
         jButton1.setText("Pesquisar");
         getContentPane().add(jButton1);
-        jButton1.setBounds(490, 228, 130, 25);
+        jButton1.setBounds(490, 212, 130, 30);
 
         jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar Usuário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(102, 102, 102)));
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(170, 200, 470, 80);
+        jLabel4.setBounds(170, 184, 470, 80);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,7 +189,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png"))); // NOI18N
         jButton4.setText("Voltar");
         getContentPane().add(jButton4);
-        jButton4.setBounds(610, 510, 130, 25);
+        jButton4.setBounds(610, 494, 120, 30);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +197,7 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(280, 512, 90, 20);
+        jTextField2.setBounds(280, 496, 90, 27);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/procurar.png"))); // NOI18N
         jButton2.setText(" Buscar Frequência");
@@ -206,17 +207,17 @@ public class ProcurarUsuarioFrequencia extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(380, 510, 160, 25);
+        jButton2.setBounds(380, 494, 160, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(140, 160, 760, 420);
+        jLabel2.setBounds(120, 140, 760, 420);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setFont(new Font("Tahoma", Font.BOLD, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Frequência Mensal");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(430, 110, 150, 17);
+        jLabel8.setBounds(400, 110, 180, 17);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel7.setAutoscrolls(true);

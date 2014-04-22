@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 
 import negocio.UsuarioLogado;
 import service.UtilDatas;
+import java.awt.Color;
 
 /**
  *
@@ -180,36 +181,36 @@ public class NovoUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel6.setForeground(Color.GRAY);
         jLabel6.setText("Salário:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(490, 250, 70, 30);
+        jLabel6.setBounds(513, 247, 70, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setForeground(Color.GRAY);
         jLabel5.setText("Data de Admissão: ");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(210, 250, 132, 14);
+        jLabel5.setBounds(233, 255, 132, 14);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setForeground(Color.GRAY);
         jLabel4.setText("Senha:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 430, 60, 14);
+        jLabel4.setBounds(233, 421, 60, 14);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setForeground(Color.GRAY);
         jLabel3.setText("Usuário:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(210, 390, 70, 17);
+        jLabel3.setBounds(233, 380, 70, 17);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setForeground(Color.GRAY);
         jLabel2.setText("Nº da Portaria: ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(210, 290, 120, 20);
+        jLabel2.setBounds(233, 288, 120, 20);
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(280, 420, 140, 25);
+        jPasswordField1.setBounds(303, 417, 140, 27);
 
         jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,9 +218,9 @@ public class NovoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(550, 250, 170, 27);
+        jFormattedTextField2.setBounds(573, 247, 170, 27);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(350, 290, 120, 27);
+        jTextField2.setBounds(373, 287, 120, 27);
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,22 +228,22 @@ public class NovoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(280, 380, 140, 25);
+        jTextField3.setBounds(303, 377, 140, 27);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 102, 102));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/ok.png"))); // NOI18N
         jButton1.setText("Cadastrar");
         getContentPane().add(jButton1);
-        jButton1.setBounds(530, 475, 120, 30);
+        jButton1.setBounds(574, 471, 120, 30);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(350, 210, 370, 27);
+        jTextField1.setBounds(373, 207, 370, 27);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setForeground(Color.GRAY);
         jLabel1.setText("Nome Completo:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(210, 210, 120, 30);
+        jLabel1.setBounds(233, 207, 120, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,7 +266,7 @@ public class NovoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(350, 475, 120, 30);
+        jButton2.setBounds(394, 471, 120, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -280,25 +281,25 @@ public class NovoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(610, 280, 91, 20);
+        jComboBox1.setBounds(634, 283, 91, 25);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel14.setForeground(Color.GRAY);
         jLabel14.setText("Nível de Acesso:");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(490, 290, 111, 17);
+        jLabel14.setBounds(513, 287, 111, 17);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 153, 153));
         jLabel15.setText("Bem Vindo, ");
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(640, 160, 160, 15);
+        jLabel15.setBounds(689, 153, 160, 15);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(350, 250, 120, 27);
+        jTextField4.setBounds(373, 247, 120, 27);
 
         jLabel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Pessoais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.darkGray));
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(180, 180, 640, 160);
+        jLabel12.setBounds(203, 177, 640, 160);
 
         jCheckBox1.setText("Segunda-Feira");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -307,19 +308,19 @@ public class NovoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(490, 380, 120, 23);
+        jCheckBox1.setBounds(513, 387, 120, 23);
 
         jCheckBox2.setText("Terça-Feira");
         getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(610, 380, 90, 23);
+        jCheckBox2.setBounds(633, 387, 90, 23);
 
         jCheckBox3.setText("Quarta-Feira");
         getContentPane().add(jCheckBox3);
-        jCheckBox3.setBounds(700, 380, 90, 23);
+        jCheckBox3.setBounds(723, 387, 111, 23);
 
         jCheckBox4.setText("Quinta-Feira");
         getContentPane().add(jCheckBox4);
-        jCheckBox4.setBounds(490, 410, 110, 23);
+        jCheckBox4.setBounds(513, 417, 110, 23);
 
         jCheckBox5.setText("Sexta-Feira");
         jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
@@ -328,20 +329,20 @@ public class NovoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox5);
-        jCheckBox5.setBounds(610, 410, 100, 23);
+        jCheckBox5.setBounds(633, 417, 100, 23);
 
         jLabel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 51, 51)));
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(180, 350, 270, 120);
+        jLabel8.setBounds(203, 347, 270, 120);
 
         jLabel17.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Expediente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.black));
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(470, 350, 350, 120);
+        jLabel17.setBounds(493, 347, 350, 120);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueCadastro.jpg"))); // NOI18N
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(150, 150, 710, 390);
+        jLabel9.setBounds(170, 143, 710, 390);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel7.setAutoscrolls(true);
@@ -349,7 +350,7 @@ public class NovoUsuario extends javax.swing.JFrame {
         jLabel7.setMaximumSize(new java.awt.Dimension(1024, 700));
         jLabel7.setMinimumSize(new java.awt.Dimension(1024, 700));
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 0, 1050, 690);
+        jLabel7.setBounds(-21, 0, 1050, 690);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

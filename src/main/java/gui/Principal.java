@@ -93,7 +93,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(436, 519, 216, 30);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(436, 347, 216, 30);
+        jTextField1.setBounds(436, 347, 216, 27);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +125,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(340, 630, 410, 20);
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(436, 408, 216, 30);
+        jPasswordField1.setBounds(436, 408, 216, 27);
         
         btnNewButton = new JButton("Saída");
         btnNewButton.setIcon(new ImageIcon(Principal.class.getResource("/gui/images/1397708174_exit.png")));

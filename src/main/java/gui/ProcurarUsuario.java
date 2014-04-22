@@ -12,6 +12,7 @@ import eventos.SelecionarUsuarioHandler;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import negocio.UsuarioLogado;
+import java.awt.Color;
 
 /**
  *
@@ -71,30 +72,30 @@ public class ProcurarUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel1.setBounds(0, 0, 1050, 25);
         jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollPane1.setBounds(170, 300, 700, 200);
+        jScrollPane1.setBounds(180, 278, 645, 200);
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jLabel3.setBounds(190, 245, 120, 15);
+        jLabel3.setBounds(195, 221, 120, 15);
         jTextField1 = new javax.swing.JTextField();
-        jTextField1.setBounds(310, 240, 160, 20);
+        jTextField1.setBounds(315, 216, 160, 27);
         jButton1 = new javax.swing.JButton();
-        jButton1.setBounds(490, 237, 130, 30);
+        jButton1.setBounds(495, 213, 130, 30);
         jLabel4 = new javax.swing.JLabel();
-        jLabel4.setBounds(170, 210, 470, 80);
+        jLabel4.setBounds(180, 187, 470, 80);
         jLabel5 = new javax.swing.JLabel();
         jLabel5.setBounds(310, 620, 410, 15);
         jButton2 = new javax.swing.JButton();
-        jButton2.setBounds(260, 510, 130, 30);
+        jButton2.setBounds(269, 489, 120, 30);
         jButton3 = new javax.swing.JButton();
-        jButton3.setBounds(460, 510, 130, 30);
+        jButton3.setBounds(461, 489, 120, 30);
         jButton4 = new javax.swing.JButton();
-        jButton4.setBounds(660, 510, 130, 30);
+        jButton4.setBounds(659, 489, 120, 30);
         jLabel6 = new javax.swing.JLabel();
-        jLabel6.setBounds(654, 170, 160, 15);
+        jLabel6.setBounds(651, 151, 160, 15);
         jLabel2 = new javax.swing.JLabel();
-        jLabel2.setBounds(140, 160, 760, 420);
+        jLabel2.setBounds(120, 140, 760, 420);
         jLabel7 = new javax.swing.JLabel();
-        jLabel7.setBounds(0, 0, 1050, 680);
+        jLabel7.setBounds(-23, 0, 1060, 680);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("ListarUsuario"); // NOI18N
@@ -131,7 +132,7 @@ public class ProcurarUsuario extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setForeground(Color.GRAY);
         jLabel3.setText("Nome do Usuário: ");
         getContentPane().add(jLabel3);
         getContentPane().add(jTextField1);

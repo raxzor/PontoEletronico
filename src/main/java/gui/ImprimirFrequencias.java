@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
 import service.UtilDatas;
 
 import javax.swing.JButton;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Color;
 
 /**
  *
@@ -75,38 +79,44 @@ public class ImprimirFrequencias extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, -2, 1100, 30);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(466, 340, 90, 20);
+        jTextField1.setBounds(464, 302, 90, 25);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new Font("Tahoma", Font.BOLD, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Data: ");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(416, 342, 40, 15);
+        jLabel4.setBounds(402, 306, 52, 15);
         
 //        JButton btnVoltar = new JButton("Voltar");
         btnVoltar.setText("Voltar");
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/back.png")));
-        btnVoltar.setBounds(379, 405, 89, 23);
+        btnVoltar.setBounds(520, 365, 120, 30);
         getContentPane().add(btnVoltar);
+        
+        JLabel lblNewLabel = new JLabel("Relatório Geral");
+        lblNewLabel.setForeground(Color.WHITE);
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+        lblNewLabel.setBounds(415, 111, 158, 25);
+        getContentPane().add(lblNewLabel);
 
         jButton1.setText("Gerar Relatórios");
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/ok.png")));
         getContentPane().add(jButton1);
-        jButton1.setBounds(506, 405, 119, 23);
+        jButton1.setBounds(359, 365, 140, 30);
         
         jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Emissão de Relatórios"));
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(354, 290, 300, 206);
+        jLabel5.setBounds(333, 252, 334, 206);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlueClaro3.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(130, 160, 770, 430);
+        jLabel3.setBounds(120, 140, 770, 430);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/backgroundBlue.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMinimumSize(new java.awt.Dimension(1024, 700));
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1060, 720);
+        jLabel1.setBounds(0, 0, 1029, 661);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
