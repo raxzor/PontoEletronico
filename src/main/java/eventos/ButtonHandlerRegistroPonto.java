@@ -49,17 +49,17 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 
 		Calendar corrente = Calendar.getInstance();
 
-		entradaManha.set(corteManha.get(Calendar.YEAR), corteManha.get(Calendar.MONTH), corteManha.get(Calendar.DAY_OF_MONTH), 07, 00, 00);
+		entradaManha.set(corteManha.get(Calendar.YEAR), corteManha.get(Calendar.MONTH), corteManha.get(Calendar.DAY_OF_MONTH), 06, 50, 00);
 		corteManha.set(corteManha.get(Calendar.YEAR),
 				corteManha.get(Calendar.MONTH),
-				corteManha.get(Calendar.DAY_OF_MONTH), 8, 00, 00);
+				corteManha.get(Calendar.DAY_OF_MONTH), 07, 50, 00);
 
 		entradaTarde.set(corteTarde.get(Calendar.YEAR),
 				corteTarde.get(Calendar.MONTH),
 				corteTarde.get(Calendar.DAY_OF_MONTH), 13, 00, 00);
 		corteTarde.set(corteTarde.get(Calendar.YEAR),
 				corteTarde.get(Calendar.MONTH),
-				corteTarde.get(Calendar.DAY_OF_MONTH), 14, 00, 00);
+				corteTarde.get(Calendar.DAY_OF_MONTH), 13, 50, 00);
 
 		if ((corrente.after(entradaManha) && (corrente.before(corteManha))) || ((corrente.after(entradaTarde)) && (corrente.before(corteTarde)))) {
 

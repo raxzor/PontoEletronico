@@ -24,6 +24,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  * Hello world!
@@ -324,8 +325,31 @@ public class App {
 			
 //		}
 
-		File dir = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/" + "Relatorio" + (RelatorioFrequenciaFuncionario.mesString(02 +1)) + " de " + 2014); 
-		dir.mkdirs();
+//		File dir = new File("C:/Users/" + System.getProperty("user.name") + "/Documents/" + "Relatorio" + (RelatorioFrequenciaFuncionario.mesString(02 +1)) + " de " + 2014); 
+//		dir.mkdirs();
+		
+//		JOptionPane.showConfirmDialog(null, "Mensagem");
+//		JOptionPane jOptionPane = new JOptionPane();
+//		Object[] o = new Object[3];
+//		o[0] = "Manhã";
+//		o[1] = "Tarde";
+//		o[2] = "Cancelar";
+//		jOptionPane.setOptions(o);
+		
+		
+//		UIManager.put("OptionPane.cancelButtonText", "Cancelar");  
+//		UIManager.put("OptionPane.noButtonText", "Tarde");  
+//		UIManager.put("OptionPane.yesButtonText", "Manhã");
+//		
+//		JOptionPane.showConfirmDialog(null, "Informa a Frequência a ser Alterada: \n \n ");
+		
+//		String gilmar = "Francisco Gilmar";
+//		
+//		System.out.println(gilmar.toUpperCase().split(" ")[0]);
+		
+//		System.out.println(new UtilFrequencia().diasDaSemana(04, 2014, 26));
+		
+//		System.out.println(new arrayl);
 	}
 	
 }

@@ -104,6 +104,14 @@ public class UtilFrequencia {
       return x;
     }
     
+    public Integer getTotalDiasUteis2020(Integer mes, Integer ano) {
+        Integer x = 0;
+             
+        x = (this.getMaximoDias(mes, ano) - this.getFeriadosOrdinarios(mes, ano));
+        
+        return x;
+      }
+    
     public String getHorasTimeStamp(Timestamp timestamp){
     	String mensagem = "Não registrado";
     	if(timestamp != null){
@@ -404,6 +412,52 @@ public class UtilFrequencia {
       }
       return maximoDias;
       
+  }
+  
+  
+  public Integer getDiasUteisMesAnterior(Integer dia, Integer mes, Integer ano){
+	  Integer diaSemanaData = this.diasDaSemana(mes, ano, dia);
+      Integer maximoDias = this.getMaximoDias(mes, ano);
+      Integer diasUteis = 0;
+      switch(maximoDias){
+      case 28 : { 
+    	  if ((diaSemanaData == 1) || (diaSemanaData == 7)){
+    		  diasUteis = 5;
+    	  } else{
+    		  diasUteis = 6;
+    	  }
+      }
+      case 29 : {
+    	  if (diaSemanaData == 7){
+    		  diasUteis = 5;
+    	  } else{
+    		  diasUteis = 6;
+    	  }
+      }
+      case 30 : {
+    	  if ((diaSemanaData == 1) || (diaSemanaData == 5)){
+    		  diasUteis = 7;
+    	  } else if ((diaSemanaData == 6) || (diaSemanaData == 7)){
+    		  diasUteis = 6;
+    	  } else{
+    		  diasUteis = 8;
+    	  }
+      }
+      case 31 : {
+    	  if ((diaSemanaData == 1) || (diaSemanaData == 4)){
+    		  diasUteis = 8;
+    	  } else if ((diaSemanaData == 2) || (diaSemanaData == 3)){
+    		  diasUteis = 9;
+    	  } else{
+    		  diasUteis = 7;
+    	  }
+      }
+      }
+      return diasUteis;
+  }
+  
+  public Integer getDiasUteisMesAtual(Integer dia, Integer mes, Integer ano){
+      return 15;
   }
   
   public List<Date> datasMes(Integer mes, Integer ano, List<Frequencia> frequencias){

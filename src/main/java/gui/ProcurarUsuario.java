@@ -55,7 +55,7 @@ public class ProcurarUsuario extends javax.swing.JFrame {
         jButton2.addActionListener(selecionarUsuarioHandler);
         ApagarUsuarioHandler apagarUsuarioHandler = new ApagarUsuarioHandler(this);
         jButton3.addActionListener(apagarUsuarioHandler);
-        jLabel6.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
+        jLabel6.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase().split(" ")[0]);
 
 //        jButton3.addActionListener(pesquisarUsuarioButtonHandler);
     }

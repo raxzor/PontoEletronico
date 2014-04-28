@@ -33,7 +33,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class RelatorioFrequenciaFuncionario {
 	
 	private static String localizacaojrxml = "C:/SisPD/FrequenciaMesFuncionario.jrxml";
-	public static String localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Documents/";
+	public static String localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Desktop/";
 
 	public static String getFrequenciaString(Boolean valor) {
 		if (valor == null) {
@@ -77,9 +77,9 @@ public class RelatorioFrequenciaFuncionario {
 
 	public static Integer getDiasTrabalhados(List<Frequencia> frequencias){
 		Integer dias_trabalhados = 0;
-		for (Frequencia frequencia : frequencias) {
-			if ((frequencia.getPresenca() != null)
-					&& (frequencia.getPresenca() == true))
+		for (int i = 0; i < frequencias.size(); i++) {
+//			continuar aqui
+			if ((frequencias.get(i).getPresenca() != null) && (frequencias.get(i).getPresenca() == true))
 				dias_trabalhados++;
 		}
 		return dias_trabalhados;
@@ -192,7 +192,7 @@ public class RelatorioFrequenciaFuncionario {
 		negocio.UsuarioLogado usuarioLogado = negocio.UsuarioLogado.getInstancia();
 		Funcionario usuario = usuarioLogado.getUsuarioLogado();
 		
-		Integer dias_uteis = new UtilFrequencia().getTotalDiasUteis(mes, ano);
+		Integer dias_uteis = ((new UtilFrequencia().getDiasUteisMesAnterior(21, mes, ano)) + 15);
 		Integer dias_trabalhados = RelatorioFrequenciaFuncionario.getDiasTrabalhados(frequencias);
 		Double salario_bruto = frequencias.get(0).getFuncionario().getSalario();
 		Double[] ad = RelatorioFrequenciaFuncionario.getAliquotaDeducaoIR(salario_bruto);
@@ -246,13 +246,17 @@ public class RelatorioFrequenciaFuncionario {
 	
 	public static void GeraRelatorio(Integer mes, Integer ano, List<Frequencia> frequencias) throws JRException, SQLException {
 
+//		for(Frequencia frequencia : frequencias){
+//			System.out.println(frequencia.getData() + " " + frequencia.getTurno() + " " + frequencia.getPresenca());
+//		}
+		
 		List<UtilFieldsRelatorioFrequencia> funcionarios = RelatorioFrequenciaFuncionario.getFields(frequencias);
 		Map<String, Object> parametros = RelatorioFrequenciaFuncionario.getParametros(mes, ano, frequencias);
 
 		JasperReport report = JasperCompileManager.compileReport(localizacaojrxml);
 		JasperPrint print = JasperFillManager.fillReport(report, parametros, new JRBeanCollectionDataSource(funcionarios));
 		String nomePDF = frequencias.get(0).getFuncionario().getNome();
-		localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Documents/" + "Relatorio_" + (RelatorioFrequenciaFuncionario.mesString(mes +1)) + "_de_" + ano + "/";
+		localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Desktop/" + "Relatorio_" + (RelatorioFrequenciaFuncionario.mesString(mes +1)) + "_de_" + ano + "/";
 		File dir = new File(localizacaopdf);  
 		dir.mkdirs();
 		JasperExportManager.exportReportToPdfFile(print, localizacaopdf	+ nomePDF + ".pdf");

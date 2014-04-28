@@ -35,7 +35,7 @@ public class NovoUsuario extends javax.swing.JFrame {
           JOptionPane.setRootFrame(this);
           setLocationRelativeTo(null);
                   
-          jLabel15.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase());
+          jLabel15.setText("Bem vindo, " + UsuarioLogado.getInstancia().getUsuarioLogado().getNome().toUpperCase().split(" ")[0]);
 
           ButtonHandlerCancelarCadastroUsuario buttonHandlerCancelarCadastroUsuario = new ButtonHandlerCancelarCadastroUsuario(this);
           jButton2.addActionListener(buttonHandlerCancelarCadastroUsuario);
@@ -235,7 +235,7 @@ public class NovoUsuario extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/ok.png"))); // NOI18N
         jButton1.setText("Cadastrar");
         getContentPane().add(jButton1);
-        jButton1.setBounds(574, 471, 120, 30);
+        jButton1.setBounds(353, 478, 120, 30);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(373, 207, 370, 27);
 
@@ -266,7 +266,7 @@ public class NovoUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(394, 471, 120, 30);
+        jButton2.setBounds(545, 478, 120, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
