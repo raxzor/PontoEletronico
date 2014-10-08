@@ -16,6 +16,8 @@ import javax.swing.JButton;
 
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import java.awt.Color;
 
 /**
  *
@@ -69,7 +71,6 @@ public class Principal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton2.setIcon(new ImageIcon(Principal.class.getResource("/gui/images/1397708340_radio-button_on.png")));
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
@@ -138,14 +139,22 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setActionCommand("jButton3");
         getContentPane().add(jButton2);
         jButton2.setBounds(435, 462, 97, 30);
+        
+        JLabel lblPrefeituraDePoo = new JLabel("Prefeitura Municipal de Poço Dantas - PB");
+        lblPrefeituraDePoo.setFont(new Font("Tahoma", Font.BOLD, 16));
+        lblPrefeituraDePoo.setForeground(Color.WHITE);
+        lblPrefeituraDePoo.setBounds(368, 80, 356, 20);
+        getContentPane().add(lblPrefeituraDePoo);
+        
+        JLabel lblSecretariaMunicipalDe = new JLabel("Secretaria Municipal de Saúde");
+        lblSecretariaMunicipalDe.setFont(new Font("Tahoma", Font.BOLD, 16));
+        lblSecretariaMunicipalDe.setForeground(Color.WHITE);
+        lblSecretariaMunicipalDe.setBounds(412, 116, 266, 20);
+        getContentPane().add(lblSecretariaMunicipalDe);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/1394264445_Login.png"))); // NOI18N
         getContentPane().add(jLabel7);
         jLabel7.setBounds(527, 244, 48, 60);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/brasão_tamanho_pequeno.png"))); // NOI18N
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(480, 39, 131, 102);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/images/lightblue.jpg"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -210,7 +219,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton btnNewButton;

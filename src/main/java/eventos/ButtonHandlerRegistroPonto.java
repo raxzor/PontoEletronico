@@ -52,7 +52,7 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 		entradaManha.set(corteManha.get(Calendar.YEAR), corteManha.get(Calendar.MONTH), corteManha.get(Calendar.DAY_OF_MONTH), 06, 50, 00);
 		corteManha.set(corteManha.get(Calendar.YEAR),
 				corteManha.get(Calendar.MONTH),
-				corteManha.get(Calendar.DAY_OF_MONTH), 07, 50, 00);
+				corteManha.get(Calendar.DAY_OF_MONTH), 9, 00, 00);
 
 		entradaTarde.set(corteTarde.get(Calendar.YEAR),
 				corteTarde.get(Calendar.MONTH),
@@ -113,7 +113,8 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 								+ ", seu ponto já foi registrado!";
 					}
 				} else {
-					respostaUsuario = "Erro, Credenciais inválidas!";
+					respostaUsuario = "Erro, Credenciais inválidas! \n" +
+										"Verifique o nome do Usuário e a sua Senha!";
 				}
 			} catch (SQLException ex) {
 				Logger.getLogger(ButtonHandlerRegistroPonto.class.getName())
@@ -126,6 +127,8 @@ public class ButtonHandlerRegistroPonto implements ActionListener {
 
 		JOptionPane.showMessageDialog(null, "Atenção, horário indisponível para registro de ponto!");
 	}
+		principal.dispose();
+		Principal.main(null);
 		}
 
 }

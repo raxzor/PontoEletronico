@@ -719,7 +719,7 @@ public class UtilFrequencia {
         }
         
         for(Frequencia frequencia : frequencias){
-        	if(integers.contains(utilFrequencia.diasDaSemana(frequencia.getData()) - 2)){
+        	if((!integers.contains(utilFrequencia.diasDaSemana(frequencia.getData()) - 2)) && (frequencia.getPresenca() != null)){
 				frequencia.setPresenca(true);
 			}
         }

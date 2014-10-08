@@ -350,6 +350,17 @@ public class App {
 //		System.out.println(new UtilFrequencia().diasDaSemana(04, 2014, 26));
 		
 //		System.out.println(new arrayl);
+		
+//		List<String> a = new ArrayList<String>();
+//		a.add("a");
+//		a.add("a");
+//		a.add("a");
+//		a.add("a");
+//		
+//		System.out.println(a.get(-1));
+		
+		Calendar c = Calendar.getInstance();
+		System.out.println(c.getTime().toString().substring(11, 20));
 	}
 	
 }

@@ -33,7 +33,8 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class RelatorioFrequenciaFuncionario {
 	
 	private static String localizacaojrxml = "C:/SisPD/FrequenciaMesFuncionario.jrxml";
-	public static String localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Desktop/";
+//	public static String localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Desktop/";
+	public static String localizacaopdf = "C:/Relatorios-SysPD/";
 
 	public static String getFrequenciaString(Boolean valor) {
 		if (valor == null) {
@@ -78,9 +79,13 @@ public class RelatorioFrequenciaFuncionario {
 	public static Integer getDiasTrabalhados(List<Frequencia> frequencias){
 		Integer dias_trabalhados = 0;
 		for (int i = 0; i < frequencias.size(); i++) {
-//			continuar aqui
 			if ((frequencias.get(i).getPresenca() != null) && (frequencias.get(i).getPresenca() == true))
-				dias_trabalhados++;
+				if(i == 0){
+					dias_trabalhados++;
+				}else if(((i > 0)) && (!frequencias.get(i).getData().toString().equals(frequencias.get(i-1).getData().toString()))){
+					dias_trabalhados++;
+				}
+				
 		}
 		return dias_trabalhados;
 	}
@@ -188,7 +193,7 @@ public class RelatorioFrequenciaFuncionario {
 	}
 	
 	public static Map<String, Object> getParametros(Integer mes, Integer ano, List<Frequencia> frequencias){
-		String titulo_pagina = "Relatório de Presença - " + (RelatorioFrequenciaFuncionario.mesString(mes +1)) + " de " + ano;
+		String titulo_pagina = "Relatório de Presença - " + (RelatorioFrequenciaFuncionario.mesString(mes)) + " de " + ano;
 		negocio.UsuarioLogado usuarioLogado = negocio.UsuarioLogado.getInstancia();
 		Funcionario usuario = usuarioLogado.getUsuarioLogado();
 		
@@ -239,7 +244,7 @@ public class RelatorioFrequenciaFuncionario {
 		parametros.put("percentual_desconto_ir", percentual_desconto_ir.toString());
 		parametros.put("desconto_ir", RelatorioFrequenciaFuncionario.moedaFormat(desconto_ir));
 		parametros.put("salario_liquido", RelatorioFrequenciaFuncionario.moedaFormat(salario_liquido));
-		parametros.put("administrador", usuario.getNome());
+//		parametros.put("administrador", usuario.getNome());
 		
 		return parametros;
 	}
@@ -252,12 +257,15 @@ public class RelatorioFrequenciaFuncionario {
 		
 		List<UtilFieldsRelatorioFrequencia> funcionarios = RelatorioFrequenciaFuncionario.getFields(frequencias);
 		Map<String, Object> parametros = RelatorioFrequenciaFuncionario.getParametros(mes, ano, frequencias);
-
 		JasperReport report = JasperCompileManager.compileReport(localizacaojrxml);
+		
+		//VIviano VIado
+		
 		JasperPrint print = JasperFillManager.fillReport(report, parametros, new JRBeanCollectionDataSource(funcionarios));
 		String nomePDF = frequencias.get(0).getFuncionario().getNome();
-		localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Desktop/" + "Relatorio_" + (RelatorioFrequenciaFuncionario.mesString(mes +1)) + "_de_" + ano + "/";
-		File dir = new File(localizacaopdf);  
+//		localizacaopdf = "C:/Users/" + System.getProperty("user.name") + "/Desktop/" + "Relatorio_" + (RelatorioFrequenciaFuncionario.mesString(mes +1)) + "_de_" + ano + "/";
+		localizacaopdf = "C:/Relatorios-SysPD/" + "Relatorio_" + (RelatorioFrequenciaFuncionario.mesString(mes)) + "_de_" + ano + "/";
+		File dir = new File(localizacaopdf);
 		dir.mkdirs();
 		JasperExportManager.exportReportToPdfFile(print, localizacaopdf	+ nomePDF + ".pdf");
 	}

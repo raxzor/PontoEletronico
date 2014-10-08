@@ -281,14 +281,6 @@
 			<line>
 				<reportElement uuid="09dde945-77b5-4570-b082-5178aa6efac1" x="348" y="198" width="207" height="1"/>
 			</line>
-			<line>
-				<reportElement uuid="a15e4814-f7dc-46fa-9651-2b70980526e4" x="48" y="129" width="195" height="1"/>
-			</line>
-			<textField>
-				<reportElement uuid="98a319b6-55b2-4364-aa1c-f5ba476d1d9c" x="48" y="134" width="195" height="20"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$P{administrador}]]></textFieldExpression>
-			</textField>
 		</band>
 	</pageFooter>
 	<summary>
